@@ -1,0 +1,10 @@
+$NetBSD$
+
+BLAKE2s (gcc12-12.2.0-cb0509ab4b84268932ea8307285f41db4e2f5e68.tar.gz) = 17cbc8be0fcd422c5261f3a6fcb2b59f622fb693ba4ba7befb0409bb97bc98df
+SHA512 (gcc12-12.2.0-cb0509ab4b84268932ea8307285f41db4e2f5e68.tar.gz) = b8fbdbfb95641b5c76e03a0f712db5f40d9e9934355882a5e394fc56cf870422a9e6a22409ce910af4aece2c48f387856f9a72dfcb162573bdb48348b80f564a
+Size (gcc12-12.2.0-cb0509ab4b84268932ea8307285f41db4e2f5e68.tar.gz) = 131015123 bytes
+SHA1 (patch-gcc_Makefile.in) = 83301ce44d92858d135bf7ad9bb667ec06050b1f
+SHA1 (patch-gcc_config_nvptx_gen-opt.sh) = a2c454d4668efb7aa27bb062eefc8d8f543f8f4f
+SHA1 (patch-gcc_config_sol2.h) = e21be5f33fb02264eb5e42222fe30f08bdd0c2ff
+SHA1 (patch-gcc_configure) = 8872d1cdeeec570235ef64314bae4517036758bf
+SHA1 (patch-libsanitizer_sanitizer__common_sanitizer__linux.cpp) = 8bcbe390e743080cfe45eeea4dd61e27caf86a8e
