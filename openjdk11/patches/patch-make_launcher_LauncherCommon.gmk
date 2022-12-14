@@ -1,0 +1,25 @@
+$NetBSD$
+
+Support for SunOS/gcc.
+
+--- make/launcher/LauncherCommon.gmk.orig	2020-09-22 15:30:20.000000000 +0000
++++ make/launcher/LauncherCommon.gmk
+@@ -44,7 +44,9 @@ endif
+ # Also provide an override for non-conformant libraries.
+ ifeq ($(TOOLCHAIN_TYPE), gcc)
+   LAUNCHER_CFLAGS += -fvisibility=hidden
++ ifneq ($(OPENJDK_TARGET_OS), solaris)
+   LDFLAGS_JDKEXE += -Wl,--exclude-libs,ALL
++ endif
+ else ifeq ($(TOOLCHAIN_TYPE), clang)
+   ifneq ($(OPENJDK_TARGET_OS), macosx)
+     LAUNCHER_CFLAGS += -fvisibility=hidden
+@@ -161,7 +163,7 @@ define SetupBuildLauncherBody
+   endif
+ 
+   ifeq ($(USE_EXTERNAL_LIBZ), true)
+-    $1_LIBS += -lz
++    $1_LIBS += @COMPILER_RPATH_FLAG@@BUILDLINK_PREFIX.zlib@/lib -L@BUILDLINK_PREFIX.zlib@/lib -lz
+   endif
+ 
+   $1_WINDOWS_JLI_LIB := $(call FindStaticLib, java.base, jli, /libjli)
