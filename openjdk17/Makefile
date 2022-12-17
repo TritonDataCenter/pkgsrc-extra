@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=	il-jdk-17.0.4.1-ga
+DISTNAME=	il-jdk-17.0.5-ga
 PKGNAME=	${DISTNAME:S/il-jdk/openjdk17/:S/-ga//}
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_GITHUB:=illumos/}
