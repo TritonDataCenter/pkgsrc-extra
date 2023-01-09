@@ -1,0 +1,23 @@
+Tailscale is a VPN service that makes the devices and applications you own
+accessible anywhere in the world, securely and effortlessly.  It enables
+encrypted point-to-point connections using the open source WireGuard protocol,
+which means only devices on your private network can communicate with each
+other.
+
+Building on top of a secure network fabric, Tailscale offers speed, stability,
+and simplicity over traditional VPNs.  Tailscale is fast and reliable.  Unlike
+traditional VPNs, which tunnel all network traffic through a central gateway
+server, Tailscale creates a peer-to-peer mesh network (called a tailnet):
+
+The Tailscale approach avoids centralization where possible, resulting in both
+higher throughput and lower latency as network traffic can flow directly
+between machines.  Additionally, decentralization improves stability and
+reliability by reducing single points of failure.
+
+Tailscale is simple and effortless.  The service handles complex network
+configuration on your behalf so that you don't have to.  Network connections
+between devices pierce through firewalls and routers as if they weren't there,
+allowing for direct connections without the need to manually configure port
+forwarding.  It allows for connection migration so that existing connections
+stay alive even when switching between different networks (e.g., wired,
+cellular, Wi-Fi, etc).
