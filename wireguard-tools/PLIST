@@ -1,0 +1,7 @@
+@comment $NetBSD$
+bin/wg
+bin/wg-quick
+man/man8/wg-quick.8
+man/man8/wg.8
+share/bash-completion/completions/wg
+share/bash-completion/completions/wg-quick
