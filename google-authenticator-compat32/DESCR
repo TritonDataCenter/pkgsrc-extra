@@ -1,0 +1,5 @@
+This package contains the 32-bit library from security/google-authenticator,
+allowing PAM access via Google Auth two-factor authentication.
+
+Currently the illumos NSS and PAM libraries require 32-bit libraries, so
+this package is required when using a 64-bit package set.
