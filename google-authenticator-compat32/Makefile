@@ -50,15 +50,16 @@ GAUTH_LIBS+=	gcc*/i486-sun-solaris2.11/lib/libgcc_s.so.1
 ELFEDIT_ARGS=	-e 'dyn:runpath ${PREFIX}/${GAUTH_LIB_DIR}'
 
 do-build:
-	${PKGSRC_SETENV} PKG_PATH=${PACKAGES:S/x86_64/i386/}/All \
+	${PKGSRC_SETENV} PKG_PATH=${PACKAGES:S/x86_64/i386/:S/tools/i386/}/All \
 		${PKG_ADD_CMD} -P ${PKG_CHROOT} -I -m i386 'google-authenticator'
 .for lib in ${GAUTH_LIBS}
-	/usr/bin/elfedit ${ELFEDIT_ARGS} ${PKG_CHROOT}/${PREFIX}/${lib}
+	/usr/bin/elfedit ${ELFEDIT_ARGS} \
+		${PKG_CHROOT}${PREFIX:S,/opt/tools,/opt/local,}/${lib}
 .endfor
 
 do-install:
 .for lib in ${GAUTH_LIBS}
-	${INSTALL_LIB} ${PKG_CHROOT}/${PREFIX}/${lib} \
+	${INSTALL_LIB} ${PKG_CHROOT}${PREFIX:S,/opt/tools,/opt/local,}/${lib} \
 		${DESTDIR}${PREFIX}/${GAUTH_LIB_DIR}
 .endfor
 
