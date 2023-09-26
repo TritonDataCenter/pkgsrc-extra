@@ -9,11 +9,11 @@
 #   - Every modification from the stock build should be clearly documented.
 #
 
-DISTNAME=	gcc13-13.1.0
+DISTNAME=	gcc13-13.2.0
 CATEGORIES=	extra lang
 MASTER_SITES=	${MASTER_SITE_GITHUB:=omniosorg/}
 GITHUB_PROJECT=	gcc
-GITHUB_TAG=	c1abc89ddcb74907988f5314044d1bf4e90cb6b7
+GITHUB_TAG=	6f08c211bda1e86402b7d8aead900845bf245f9b
 
 MAINTAINER=	jperkin@pkgsrc.org
 HOMEPAGE=	https://gcc.gnu.org/

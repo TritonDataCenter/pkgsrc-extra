@@ -957,6 +957,7 @@ ${PKGBASE}/lib/amd64/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/image/gif.gox
 ${PKGBASE}/lib/amd64/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/image/jpeg.gox
 ${PKGBASE}/lib/amd64/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/image/png.gox
 ${PKGBASE}/lib/amd64/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/index/suffixarray.gox
+${PKGBASE}/lib/amd64/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/internal/lazyregexp.gox
 ${PKGBASE}/lib/amd64/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/internal/reflectlite.gox
 ${PKGBASE}/lib/amd64/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/internal/unsafeheader.gox
 ${PKGBASE}/lib/amd64/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/io.gox
@@ -1042,7 +1043,7 @@ ${PKGBASE}/lib/amd64/libsanitizer.spec
 ${PKGBASE}/lib/amd64/libssp.la
 ${PKGBASE}/lib/amd64/libssp_nonshared.la
 ${PKGBASE}/lib/amd64/libstdc++.la
-${PKGBASE}/lib/amd64/libstdc++.so.6.0.31-gdb.py
+${PKGBASE}/lib/amd64/libstdc++.so.6.0.32-gdb.py
 ${PKGBASE}/lib/amd64/libstdc++exp.la
 ${PKGBASE}/lib/amd64/libstdc++fs.la
 ${PKGBASE}/lib/amd64/libsupc++.la
@@ -1806,6 +1807,7 @@ ${PKGBASE}/lib/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/image/gif.gox
 ${PKGBASE}/lib/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/image/jpeg.gox
 ${PKGBASE}/lib/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/image/png.gox
 ${PKGBASE}/lib/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/index/suffixarray.gox
+${PKGBASE}/lib/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/internal/lazyregexp.gox
 ${PKGBASE}/lib/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/internal/reflectlite.gox
 ${PKGBASE}/lib/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/internal/unsafeheader.gox
 ${PKGBASE}/lib/go/${PKGVERSION}/${MACHINE_GNU_PLATFORM}/io.gox
@@ -1891,7 +1893,7 @@ ${PKGBASE}/lib/libsanitizer.spec
 ${PKGBASE}/lib/libssp.la
 ${PKGBASE}/lib/libssp_nonshared.la
 ${PKGBASE}/lib/libstdc++.la
-${PKGBASE}/lib/libstdc++.so.6.0.31-gdb.py
+${PKGBASE}/lib/libstdc++.so.6.0.32-gdb.py
 ${PKGBASE}/lib/libstdc++exp.la
 ${PKGBASE}/lib/libstdc++fs.la
 ${PKGBASE}/lib/libsupc++.la

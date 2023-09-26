@@ -39,8 +39,8 @@ gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libssp.so.0.0.0
 gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libssp_nonshared.a
 gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libstdc++.so
 gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libstdc++.so.6
-gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libstdc++.so.6.0.31
-gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libstdc++.so.6.0.31-gdb.py
+gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libstdc++.so.6.0.32
+gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libstdc++.so.6.0.32-gdb.py
 gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libubsan.so
 gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libubsan.so.1
 gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64/libubsan.so.1.0.0
@@ -81,8 +81,8 @@ gcc13/${MACHINE_GNU_PLATFORM}/lib/libssp.so.0.0.0
 gcc13/${MACHINE_GNU_PLATFORM}/lib/libssp_nonshared.a
 gcc13/${MACHINE_GNU_PLATFORM}/lib/libstdc++.so
 gcc13/${MACHINE_GNU_PLATFORM}/lib/libstdc++.so.6
-gcc13/${MACHINE_GNU_PLATFORM}/lib/libstdc++.so.6.0.31
-gcc13/${MACHINE_GNU_PLATFORM}/lib/libstdc++.so.6.0.31-gdb.py
+gcc13/${MACHINE_GNU_PLATFORM}/lib/libstdc++.so.6.0.32
+gcc13/${MACHINE_GNU_PLATFORM}/lib/libstdc++.so.6.0.32-gdb.py
 gcc13/${MACHINE_GNU_PLATFORM}/lib/libubsan.so
 gcc13/${MACHINE_GNU_PLATFORM}/lib/libubsan.so.1
 gcc13/${MACHINE_GNU_PLATFORM}/lib/libubsan.so.1.0.0
