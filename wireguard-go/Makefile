@@ -10,6 +10,9 @@ HOMEPAGE=	https://github.com/nshalman/wireguard-go
 COMMENT=	Implementation of WireGuard in Go
 LICENSE=	mit
 
+# Support for 1.21 is in master but not this version.  Remove when updated.
+GO_VERSION_REQD=	120
+
 .include "go-modules.mk"
 
 do-install:
