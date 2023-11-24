@@ -1,0 +1,11 @@
+*link_arch32:
+%{YP,*} %{R*} %{!YP,*:%{p|pg:-Y P,%R/usr/lib/libp%R/lib:%R/usr/lib} %{!p:%{!pg:-Y P,%R/lib:%R/usr/lib}}}
+
+*link_arch64:
+%{YP,*} %{R*} %{!YP,*:%{p|pg:-Y P,%R/usr/lib/libp/amd64:%R/lib/amd64:%R/usr/lib/amd64} %{!p:%{!pg:-Y P,%R/lib/amd64:%R/usr/lib/amd64}}}
+
+*link_arch_default:
+%(link_arch64)
+
+*link_libgcc:
+%D -R@LIBGCC_PREFIX@/lib/%M
