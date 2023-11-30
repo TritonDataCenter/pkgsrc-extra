@@ -32,10 +32,6 @@ UNLIMIT_RESOURCES=	datasize stacksize
 BUILDLINK_TRANSFORM+=	rm:-Werror
 
 CONFIGURE_ARGS+=	--disable-option-checking # for --with-libiconv-prefix
-CONFIGURE_ARGS+=	--prefix=${PREFIX:Q}
-CONFIGURE_ARGS+=	--build=${MACHINE_GNU_PLATFORM:Q}
-CONFIGURE_ARGS+=	--host=${MACHINE_GNU_PLATFORM:Q}
-CONFIGURE_ARGS+=	--target=${MACHINE_GNU_PLATFORM:Q}
 CONFIGURE_ARGS+=	--disable-ccache
 CONFIGURE_ARGS+=	--disable-precompiled-headers
 CONFIGURE_ARGS+=	--disable-warnings-as-errors
@@ -85,7 +81,7 @@ SUBST_VARS.libpaths+=	JAVA_HOME
 .include "../../mk/bsd.prefs.mk"
 
 # Bootstrap support, using pre-built OpenJDK16 binaries.
-.if !empty(MACHINE_PLATFORM:MSunOS-*-x86_64) || make(distinfo) || make (makesum) || make(mdi)
+.if ${MACHINE_PLATFORM:MSunOS-*-x86_64} || make(distinfo) || make (makesum) || make(mdi)
 BOOTSTRAP_JDK:=		openjdk16-16.0.2-x86_64-sun-solaris.tar.gz
 SITES.${BOOTSTRAP_JDK}=	https://us-central.manta.mnx.io/pkgsrc/public/pkg-bootstraps/
 DISTFILES:=		${DEFAULT_DISTFILES} ${BOOTSTRAP_JDK}
@@ -168,17 +164,18 @@ bootstrap: install
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../fonts/fontconfig/buildlink3.mk"
 .include "../../graphics/freetype2/buildlink3.mk"
+.include "../../mk/java-env.mk"
+.include "../../mk/jpeg.buildlink3.mk"
+.include "../../x11/libXext/buildlink3.mk"
+.include "../../x11/libXi/buildlink3.mk"
+.include "../../x11/libXrender/buildlink3.mk"
+.include "../../x11/libXtst/buildlink3.mk"
 # Headers from CUPS are required to build the native implementation of
 # sun.print.* which is used by java.awt.print.
 BUILDLINK_DEPMETHOD.cups-base?=	build
 .include "../../print/cups-base/buildlink3.mk"
-.include "../../mk/java-env.mk"
-.include "../../x11/libXext/buildlink3.mk"
-.include "../../x11/libXi/buildlink3.mk"
 BUILDLINK_DEPMETHOD.libXt?=     build
 .include "../../x11/libXt/buildlink3.mk"
-.include "../../x11/libXtst/buildlink3.mk"
-.include "../../x11/libXrender/buildlink3.mk"
 BUILDLINK_DEPMETHOD.libXrandr?= build
 .include "../../x11/libXrandr/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
