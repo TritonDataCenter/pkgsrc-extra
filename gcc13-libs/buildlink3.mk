@@ -19,7 +19,7 @@ SPECS_PKGSRC=		${WRAPPER_DIR}/specs.pkgsrc
 WRAPPER_TARGETS+=	${SPECS_PKGSRC}
 
 ${SPECS_PKGSRC}:
-	${SED} -e \
+	@${SED} -e \
 	    's,@LIBGCC_PREFIX@,${BUILDLINK_PREFIX.gcc13-libs}/gcc13/${MACHINE_GNU_PLATFORM},g' \
 	    < ${BUILDLINK_PKGSRCDIR.gcc13-libs}/files/specs.pkgsrc \
 	    > ${SPECS_PKGSRC}
