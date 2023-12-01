@@ -44,8 +44,8 @@ PKG_CHROOT=		${WRKSRC}/pkg
 # not the 32-bit set.
 #
 DUO_LIBS+=	lib/security/pam_duo.so
-DUO_LIBS+=	lib/libcrypto.so.1.1
-DUO_LIBS+=	lib/libssl.so.1.1
+DUO_LIBS+=	lib/libcrypto.so.3
+DUO_LIBS+=	lib/libssl.so.3
 DUO_LIBS+=	gcc*/i486-sun-solaris2.11/lib/libgcc_s.so.1
 
 ELFEDIT_ARGS=	-e 'dyn:runpath ${PREFIX}/${DUO_LIB_DIR}'
