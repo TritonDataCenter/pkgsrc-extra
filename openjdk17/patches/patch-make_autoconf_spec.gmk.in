@@ -3,9 +3,9 @@ $NetBSD$
 Ensure interim libraries can be found.  These patches are only appropriate for
 pkgsrc, other builds aren't as strict about removing $ORIGIN as us.
 
---- make/autoconf/spec.gmk.in.orig	2022-09-16 19:23:54.000000000 +0000
+--- make/autoconf/spec.gmk.in.orig	2023-12-05 15:59:10.000000000 +0000
 +++ make/autoconf/spec.gmk.in
-@@ -530,12 +530,12 @@ LD_JAOTC:=@LD_JAOTC@
+@@ -537,12 +537,12 @@ LD := @LD@
  SDKROOT:=@SDKROOT@
  
  # LDFLAGS used to link the jdk native libraries (C-code)
@@ -20,7 +20,7 @@ pkgsrc, other builds aren't as strict about removing $ORIGIN as us.
  JDKEXE_LIBS:=@JDKEXE_LIBS@
  
  # LDFLAGS specific to C++ linking.
-@@ -646,14 +646,14 @@ JAVA = $(JAVA_CMD) $(JAVA_FLAGS_BIG) $(J
+@@ -651,14 +651,14 @@ JAVA = $(JAVA_CMD) $(JAVA_FLAGS_BIG) $(J
  JAVA_SMALL = $(JAVA_CMD) $(JAVA_FLAGS_SMALL) $(JAVA_FLAGS)
  JAVAC = $(JAVAC_CMD)
  JAVADOC = $(JAVADOC_CMD)

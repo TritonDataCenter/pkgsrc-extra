@@ -3,7 +3,7 @@ $NetBSD$
 Ensure interim libraries can be found.  These patches are only appropriate for
 pkgsrc, other builds aren't as strict about removing $ORIGIN as us.
 
---- make/GenerateLinkOptData.gmk.orig	2022-09-16 19:23:54.000000000 +0000
+--- make/GenerateLinkOptData.gmk.orig	2023-12-05 15:59:10.000000000 +0000
 +++ make/GenerateLinkOptData.gmk
 @@ -66,15 +66,15 @@ $(CLASSLIST_FILE): $(INTERIM_IMAGE_DIR)/
  	$(call LogInfo, Generating $(patsubst $(OUTPUTDIR)/%, %, $@))
@@ -24,3 +24,12 @@ pkgsrc, other builds aren't as strict about removing $ORIGIN as us.
  	    -XX:SharedClassListFile=$@.interim -XX:SharedArchiveFile=$@.jsa \
  	    -Djava.lang.invoke.MethodHandle.TRACE_RESOLVE=true \
  	    -Duser.language=en -Duser.country=US \
+@@ -90,7 +90,7 @@ $(CLASSLIST_FILE): $(INTERIM_IMAGE_DIR)/
+ 	        exit $$exitcode \
+ 	    )
+ 	$(GREP) -v HelloClasslist $@.raw.2 > $@.raw.3
+-	$(FIXPATH) $(INTERIM_IMAGE_DIR)/bin/java \
++	$(FIXPATH) LD_LIBRARY_PATH=$(INTERIM_IMAGE_DIR)/lib $(INTERIM_IMAGE_DIR)/bin/java \
+ 	    -cp $(SUPPORT_OUTPUTDIR)/classlist.jar \
+ 	    build.tools.classlist.SortClasslist $@.raw.3 > $@
+ 
