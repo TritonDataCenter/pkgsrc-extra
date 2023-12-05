@@ -2,9 +2,9 @@ $NetBSD$
 
 Ensure the correct zlib can be found.
 
---- make/common/modules/LauncherCommon.gmk.orig	2020-05-13 14:18:16.000000000 +0000
+--- make/common/modules/LauncherCommon.gmk.orig	2023-12-05 15:59:10.000000000 +0000
 +++ make/common/modules/LauncherCommon.gmk
-@@ -128,7 +128,7 @@ define SetupBuildLauncherBody
+@@ -137,7 +137,7 @@ define SetupBuildLauncherBody
    endif
  
    ifeq ($(USE_EXTERNAL_LIBZ), true)

@@ -182,7 +182,6 @@ java/${JAVA_NAME}/include/jdwpTransport.h
 java/${JAVA_NAME}/include/jni.h
 java/${JAVA_NAME}/include/jvmti.h
 java/${JAVA_NAME}/include/jvmticmlr.h
-java/${JAVA_NAME}/include/sizecalc.h
 java/${JAVA_NAME}/include/solaris/jawt_md.h
 java/${JAVA_NAME}/include/solaris/jni_md.h
 java/${JAVA_NAME}/jmods/java.base.jmod
