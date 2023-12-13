@@ -14,8 +14,10 @@ LICENSE=	gnu-gpl-v2
 
 JAVA_NAME=	openjdk17
 JAVA_HOME=	${PREFIX}/java/${JAVA_NAME}
-JAVA_WRAPPERS=	jar java javac javadoc javah javap jcmd jhat jps jstack \
-		keytool orbd policytool rmiregistry servertool tnameserv
+JAVA_WRAPPERS=	jar jarsigner java javac javadoc javap jcmd jconsole jdb
+JAVA_WRAPPERS+=	jdeprscan jdeps jfr jhsdb jimage jinfo jlink jmap jmod jps
+JAVA_WRAPPERS+=	jrunscript jshell jstack jstat jstatd keytool rmiregistry
+JAVA_WRAPPERS+=	serialver
 
 BUILD_DEPENDS+=	mozilla-rootcerts-[0-9]*:../../security/mozilla-rootcerts
 DEPENDS+=	dejavu-ttf-[0-9]*:../../fonts/dejavu-ttf
@@ -80,14 +82,17 @@ SUBST_VARS.libpaths+=	JAVA_HOME
 
 .include "../../mk/bsd.prefs.mk"
 
-# Bootstrap support, using pre-built OpenJDK16 binaries.
+# OpenJDK bootstrap requirements are usually extremely tight, requiring either
+# N or N-1 (no LTS!).  To generate the first bootstrap kit use a temporary
+# Tribblix binary kit (unzip the .zap and point BOOTJDK_DIR at it).
+#
 .if ${MACHINE_PLATFORM:MSunOS-*-x86_64} || make(distinfo) || make (makesum) || make(mdi)
-BOOTSTRAP_JDK:=		openjdk16-16.0.2-x86_64-sun-solaris.tar.gz
+BOOTSTRAP_JDK:=		openjdk17-17.0.9-x86_64-unknown-illumos.tar.gz
 SITES.${BOOTSTRAP_JDK}=	https://us-central.manta.mnx.io/pkgsrc/public/pkg-bootstraps/
 DISTFILES:=		${DEFAULT_DISTFILES} ${BOOTSTRAP_JDK}
 .endif
 
-BOOTJDK_DIR=		${WRKDIR}/openjdk16
+BOOTJDK_DIR=		${WRKDIR}/openjdk17
 CACERTS_STORE=		${WRKDIR}/cacerts.keystore
 
 CONFIGURE_ARGS+=	--with-boot-jdk=${BOOTJDK_DIR}
@@ -126,6 +131,13 @@ do-install:
 
 ELFEDIT?=	/usr/bin/elfedit
 
+OPENJDK_GCC_LIBS=	libgcc_s.so.1 libstdc++.so.6
+OPENJDK_PKGSRC_LIBS=	libX11.so.6 libXau.so.6 libXdmcp.so.6 libXext.so.0
+OPENJDK_PKGSRC_LIBS+=	libXi.so.6 libXrender.so.1 libXtst.so.6
+OPENJDK_PKGSRC_LIBS+=	libbrotlicommon.so.1 libbrotlidec.so.1 libbz2.so.0
+OPENJDK_PKGSRC_LIBS+=	libfreetype.so.6 libiconv.so.2 libintl.so.8
+OPENJDK_PKGSRC_LIBS+=	libjpeg.so.8 libpng16.so.16 libxcb.so.1 libz.so.1
+
 .PHONY: bootstrap
 bootstrap: install
 	${RM} -rf ${WRKDIR}/bootstrap/${JAVA_NAME}
@@ -133,14 +145,11 @@ bootstrap: install
 	cd ${DESTDIR}${JAVA_HOME} && ${PAX} -rwpp . ${WRKDIR}/bootstrap/${JAVA_NAME}/
 .if ${OPSYS} == "SunOS"
 	${MKDIR} ${WRKDIR}/bootstrap/${JAVA_NAME}/lib/pkgsrc
-	for lib in libgcc_s.so.1 libssp.so.0 libstdc++.so.6; do \
+	for lib in ${OPENJDK_GCC_LIBS}; do \
 		${CP} `${PKG_CC} -print-file-name=$${lib}` \
 		    ${WRKDIR}/bootstrap/${JAVA_NAME}/lib/pkgsrc/; \
 	done
-	for lib in libX11.so.6 libXau.so.6 libXdmcp.so.6 libXext.so.0 \
-		   libXi.so.6 libXrender.so.1 libXtst.so.6 libbz2.so.0 \
-		   libfreetype.so.6 libiconv.so.2 libintl.so.8 libjpeg.so.8 \
-		   libpng16.so.16 libxcb.so.1 libz.so.1; do \
+	for lib in ${OPENJDK_PKGSRC_LIBS}; do \
 		${CP} ${PREFIX}/lib/$${lib} \
 		    ${WRKDIR}/bootstrap/${JAVA_NAME}/lib/pkgsrc/; \
 	done
@@ -157,7 +166,7 @@ bootstrap: install
 		${ELFEDIT} -e 'dyn:runpath $$ORIGIN/../pkgsrc' $$f; \
 	done
 	(cd ${WRKDIR}/bootstrap; \
-	    ${TAR} -zcf ${PKGNAME}-x86_64-sun-solaris.tar.gz ${JAVA_NAME})
+	    ${TAR} -zcf ${PKGNAME}-x86_64-unknown-illumos.tar.gz ${JAVA_NAME})
 .endif
 
 .include "../../converters/libiconv/buildlink3.mk"

@@ -135,6 +135,13 @@ do-install:
 
 ELFEDIT?=	/usr/bin/elfedit
 
+OPENJDK_GCC_LIBS=	libgcc_s.so.1 libstdc++.so.6
+OPENJDK_PKGSRC_LIBS=	libX11.so.6 libXau.so.6 libXdmcp.so.6 libXext.so.0
+OPENJDK_PKGSRC_LIBS+=	libXi.so.6 libXrender.so.1 libXtst.so.6
+OPENJDK_PKGSRC_LIBS+=	libbrotlicommon.so.1 libbrotlidec.so.1 libbz2.so.0
+OPENJDK_PKGSRC_LIBS+=	libfreetype.so.6 libiconv.so.2 libintl.so.8
+OPENJDK_PKGSRC_LIBS+=	libjpeg.so.8 libpng16.so.16 libxcb.so.1 libz.so.1
+
 .PHONY: bootstrap
 bootstrap: install
 	${RM} -rf ${WRKDIR}/bootstrap/${JAVA_NAME}
@@ -142,14 +149,11 @@ bootstrap: install
 	cd ${DESTDIR}${JAVA_HOME} && ${PAX} -rwpp . ${WRKDIR}/bootstrap/${JAVA_NAME}/
 .if ${OPSYS} == "SunOS"
 	${MKDIR} ${WRKDIR}/bootstrap/${JAVA_NAME}/lib/pkgsrc
-	for lib in libgcc_s.so.1 libstdc++.so.6; do \
+	for lib in ${OPENJDK_GCC_LIBS}; do \
 		${CP} `${PKG_CC} -print-file-name=$${lib}` \
 		    ${WRKDIR}/bootstrap/${JAVA_NAME}/lib/pkgsrc/; \
 	done
-	for lib in libX11.so.6 libXau.so.6 libXdmcp.so.6 libXext.so.0 \
-		   libXi.so.6 libXrender.so.1 libXtst.so.6 libbrotlidec.so.1 \
-		   libbz2.so.0 libfreetype.so.6 libiconv.so.2 libintl.so.8 \
-		   libjpeg.so.8 libpng16.so.16 libxcb.so.1 libz.so.1; do \
+	for lib in ${OPENJDK_PKGSRC_LIBS}; do \
 		${CP} ${PREFIX}/lib/$${lib} \
 		    ${WRKDIR}/bootstrap/${JAVA_NAME}/lib/pkgsrc/; \
 	done
