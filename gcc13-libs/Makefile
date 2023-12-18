@@ -14,8 +14,8 @@ USE_TOOLS+=	pax
 
 NO_BUILD=	yes
 
-CHECK_SHLIBS=			no		# RPATH will find gcc13 libraries
-CHECK_SSP_SUPPORTED=		no		# Clean CFLAGS removes -fstack*
+CHECK_SHLIBS=		no		# RPATH will find gcc13 libraries
+CHECK_SSP_SUPPORTED=	no		# Clean CFLAGS removes -fstack*
 
 BUILD_DEPENDS+=		gcc13-[0-9]*:../../extra/gcc13
 
