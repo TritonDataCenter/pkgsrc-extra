@@ -11,7 +11,7 @@
 # with netpgp and still causes warnings if available in the keyring.
 #
 
-DISTNAME=	pkgsrc-gnupg-keys-20221116
+DISTNAME=	pkgsrc-gnupg-keys-20231210
 CATEGORIES=	security
 MASTER_SITES=	#empty
 DISTFILES=	#empty
