@@ -1,10 +1,10 @@
 # $NetBSD$
 
-DISTNAME=	jdk-11.0.17-ga
-PKGNAME=	${DISTNAME:C/jdk/openjdk11/:C/-ga//}
+DISTNAME=	il-jdk-11.0.21-ga
+PKGNAME=	${DISTNAME:C/il-jdk/openjdk11/:C/-ga//}
 CATEGORIES=	lang
-MASTER_SITES=	${MASTER_SITE_GITHUB:=openjdk/}
-GITHUB_PROJECT=	jdk11u
+MASTER_SITES=	${MASTER_SITE_GITHUB:=illumos/}
+GITHUB_PROJECT=	jdk
 GITHUB_TAG=	${DISTNAME}
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -12,16 +12,14 @@ HOMEPAGE=	http://openjdk.java.net/
 COMMENT=	Open-source implementation of the Java Platform, Standard Edition
 LICENSE=	gnu-gpl-v2
 
-DIST_SUBDIR=	openjdk11
-WRKSRC=		${WRKDIR}/jdk11u-${DISTNAME}
-
 JAVA_NAME=	openjdk11
 JAVA_HOME=	${PREFIX}/java/${JAVA_NAME}
-JAVA_WRAPPERS=	jar java javac javadoc javah javap jcmd jhat jps jstack \
-		keytool orbd policytool rmid rmiregistry servertool tnameserv
+JAVA_WRAPPERS=	jaotc jar jarsigner java javac javadoc javap jcmd jconsole jdb
+JAVA_WRAPPERS+=	jdeprscan jdeps jfr jhsdb jimage jinfo jjs jlink jmap jmod jps
+JAVA_WRAPPERS+=	jrunscript jshell jstack jstat jstatd keytool pack200 rmic rmid
+JAVA_WRAPPERS+=	rmiregistry serialver unpack200
 
 BUILD_DEPENDS+=	mozilla-rootcerts-[0-9]*:../../security/mozilla-rootcerts
-
 DEPENDS+=	dejavu-ttf-[0-9]*:../../fonts/dejavu-ttf
 
 BUILD_TARGET=	images
@@ -90,12 +88,12 @@ SUBST_VARS.libpaths=	BUILDLINK_PREFIX.zlib COMPILER_RPATH_FLAG
 
 # Bootstrap support, using pre-built OpenJDK10 binaries.
 .if ${MACHINE_PLATFORM:MSunOS-*-x86_64} || make(distinfo) || make (makesum) || make(mdi)
-BOOTSTRAP_JDK:=		openjdk10-10.0.46-x86_64-sun-solaris.tar.gz
-SITES.${BOOTSTRAP_JDK}=	https://us-east.manta.joyent.com/pkgsrc/public/pkg-bootstraps/
+BOOTSTRAP_JDK:=		openjdk11-11.0.21-x86_64-unknown-illumos.tar.gz
+SITES.${BOOTSTRAP_JDK}=	https://us-central.manta.mnx.io/pkgsrc/public/pkg-bootstraps/
 DISTFILES:=		${DEFAULT_DISTFILES} ${BOOTSTRAP_JDK}
 .endif
 
-BOOTJDK_DIR=		${WRKDIR}/openjdk10
+BOOTJDK_DIR=		${WRKDIR}/openjdk11
 CACERTS_STORE=		${WRKDIR}/cacerts.keystore
 
 CONFIGURE_ARGS+=	--with-boot-jdk=${BOOTJDK_DIR}
@@ -135,6 +133,15 @@ do-install:
 
 ELFEDIT?=	/usr/bin/elfedit
 
+OPENJDK_GCC_LIBS=	libgcc_s.so.1 libstdc++.so.6
+OPENJDK_PKGSRC_LIBS=	libX11.so.6 libXau.so.6 libXdmcp.so.6 libXext.so.0
+OPENJDK_PKGSRC_LIBS+=	libXi.so.6 libXrender.so.1 libXtst.so.6
+OPENJDK_PKGSRC_LIBS+=	libbrotlicommon.so.1 libbrotlidec.so.1 libbz2.so.0
+OPENJDK_PKGSRC_LIBS+=	libfreetype.so.6 libgif.so.7 libglib-2.0.so.0
+OPENJDK_PKGSRC_LIBS+=	libgraphite2.so.3 libharfbuzz.so.0 libiconv.so.2
+OPENJDK_PKGSRC_LIBS+=	libintl.so.8 libjpeg.so.8 liblcms2.so.2 libpcre2-8.so.0
+OPENJDK_PKGSRC_LIBS+=	libpng16.so.16 libxcb.so.1 libz.so.1
+
 .PHONY: bootstrap
 bootstrap: install
 	${RM} -rf ${WRKDIR}/bootstrap/${JAVA_NAME}
@@ -142,16 +149,11 @@ bootstrap: install
 	cd ${DESTDIR}${JAVA_HOME} && ${PAX} -rwpp . ${WRKDIR}/bootstrap/${JAVA_NAME}/
 .if ${OPSYS} == "SunOS"
 	${MKDIR} ${WRKDIR}/bootstrap/${JAVA_NAME}/lib/pkgsrc
-	for lib in libgcc_s.so.1 libssp.so.0 libstdc++.so.6; do \
+	for lib in ${OPENJDK_GCC_LIBS}; do \
 		${CP} `${PKG_CC} -print-file-name=$${lib}` \
 		    ${WRKDIR}/bootstrap/${JAVA_NAME}/lib/pkgsrc/; \
 	done
-	for lib in libX11.so.6 libXau.so.6 libXdmcp.so.6 libXext.so.0 \
-		   libXi.so.6 libXrender.so.1 libXtst.so.6 libbz2.so.0 \
-		   libfreetype.so.6 libgif.so.7 libglib-2.0.so.0 \
-		   libgraphite2.so.3 libharfbuzz.so.0 libiconv.so.2 \
-		   libintl.so.8 libjpeg.so.8 liblcms2.so.2 libpcre.so.1 \
-		   libpng16.so.16 libxcb.so.1 libz.so.1; do \
+	for lib in ${OPENJDK_PKGSRC_LIBS}; do \
 		${CP} ${PREFIX}/lib/$${lib} \
 		    ${WRKDIR}/bootstrap/${JAVA_NAME}/lib/pkgsrc/; \
 	done
@@ -171,7 +173,7 @@ bootstrap: install
 		${ELFEDIT} -e 'dyn:runpath $$ORIGIN/../pkgsrc' $$f; \
 	done
 	(cd ${WRKDIR}/bootstrap; \
-	    ${TAR} -zcf ${PKGNAME}-x86_64-sun-solaris.tar.gz ${JAVA_NAME})
+	    ${TAR} -zcf ${PKGNAME}-x86_64-unknown-illumos.tar.gz ${JAVA_NAME})
 .endif
 
 .include "../../converters/libiconv/buildlink3.mk"

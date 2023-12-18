@@ -1,20 +1,10 @@
 $NetBSD$
 
-Support for SunOS/gcc.
+Ensure the correct zlib can be found.
 
---- make/launcher/Launcher-jdk.pack.gmk.orig	2020-09-22 15:30:20.000000000 +0000
+--- make/launcher/Launcher-jdk.pack.gmk.orig	2023-12-18 11:56:36.924786589 +0000
 +++ make/launcher/Launcher-jdk.pack.gmk
-@@ -43,7 +43,9 @@ $(eval $(call SetupBuildLauncher, pack20
- # Also provide an override for non-conformant libraries.
- ifeq ($(TOOLCHAIN_TYPE), gcc)
-   CXXFLAGS_JDKEXE += -fvisibility=hidden
-+ ifneq ($(OPENJDK_TARGET_OS), solaris)
-   LDFLAGS_JDKEXE += -Wl,--exclude-libs,ALL
-+ endif
- else ifeq ($(TOOLCHAIN_TYPE), clang)
-   ifneq ($(OPENJDK_TARGET_OS), macosx)
-     CXXFLAGS_JDKEXE += -fvisibility=hidden
-@@ -60,7 +62,7 @@ UNPACKEXE_CFLAGS := -I$(TOPDIR)/src/jdk.
+@@ -62,7 +62,7 @@ UNPACKEXE_CFLAGS := -I$(TOPDIR)/src/jdk.
  
  ifeq ($(USE_EXTERNAL_LIBZ), true)
    UNPACKEXE_CFLAGS += -DSYSTEM_ZLIB

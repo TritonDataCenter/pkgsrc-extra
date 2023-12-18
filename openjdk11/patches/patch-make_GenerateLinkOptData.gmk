@@ -1,14 +1,16 @@
 $NetBSD$
 
-Ensure java libraries can be found during build.
+Ensure interim libraries can be found.  These patches are only appropriate for
+pkgsrc, other builds aren't as strict about removing $ORIGIN as us.
 
---- make/GenerateLinkOptData.gmk.orig	2019-01-08 09:40:28.000000000 +0000
+--- make/GenerateLinkOptData.gmk.orig	2023-12-18 11:41:31.283732004 +0000
 +++ make/GenerateLinkOptData.gmk
-@@ -61,6 +61,7 @@ $(CLASSLIST_FILE): $(INTERIM_IMAGE_DIR)/
- 	$(call MakeDir, $(LINK_OPT_DIR))
+@@ -62,7 +62,7 @@ $(CLASSLIST_FILE): $(INTERIM_IMAGE_DIR)/
  	$(call LogInfo, Generating $(patsubst $(OUTPUTDIR)/%, %, $@))
  	$(call LogInfo, Generating $(patsubst $(OUTPUTDIR)/%, %, $(JLI_TRACE_FILE)))
-+	LD_LIBRARY_PATH=$(INTERIM_IMAGE_DIR)/lib:$(INTERIM_IMAGE_DIR)/lib/jli \
- 	$(FIXPATH) $(INTERIM_IMAGE_DIR)/bin/java -XX:DumpLoadedClassList=$@.raw \
+ 	LD_LIBRARY_PATH=$(INTERIM_IMAGE_DIR)/lib:$(INTERIM_IMAGE_DIR)/lib/jli \
+-	$(FIXPATH) $(INTERIM_IMAGE_DIR)/bin/java -XX:DumpLoadedClassList=$@.raw \
++	$(FIXPATH) LD_LIBRARY_PATH=$(INTERIM_IMAGE_DIR)/lib:$(INTERIM_IMAGE_DIR)/lib/jli $(INTERIM_IMAGE_DIR)/bin/java -XX:DumpLoadedClassList=$@.raw \
  	    -Djava.lang.invoke.MethodHandle.TRACE_RESOLVE=true \
  	    -cp $(SUPPORT_OUTPUTDIR)/classlist.jar \
+ 	    build.tools.classlist.HelloClasslist \
