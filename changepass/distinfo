@@ -1,0 +1,5 @@
+$NetBSD$
+
+BLAKE2s (cgipaf-1.3.3.tar.gz) = 6887a4ed071b234d398e9793b4ccb412a62ca70012e0f27d1ffecc0b334cc52e
+SHA512 (cgipaf-1.3.3.tar.gz) = 82ea33429b7e66163dee22083d72833bc7cca6b0803d92b5add1b3a22ff49fb33d58ce02362cf3f31dbf97d5b0161f5db9a54f9bc3db8cd202ffbbdf7251bed3
+Size (cgipaf-1.3.3.tar.gz) = 176974 bytes

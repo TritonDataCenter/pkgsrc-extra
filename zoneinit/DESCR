@@ -1,0 +1,2 @@
+zoneinit provides scripts required for 'joyent' branded zones to provision
+successfully on SmartOS.
