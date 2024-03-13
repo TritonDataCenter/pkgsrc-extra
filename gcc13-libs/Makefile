@@ -22,31 +22,32 @@ BUILD_DEPENDS+=		gcc13-[0-9]*:../../extra/gcc13
 INSTALLATION_DIRS+=	gcc13/${MACHINE_GNU_PLATFORM}/lib
 
 LIBRARY_FILES=	${WRKDIR}/lib_files
-OBJECT_FILES=	${WRKDIR}/obj_files
 
+# Exclude 32-bit libraries from 64-bit package, and vice versa.
+.if ${MACHINE_ARCH} == "x86_64"
+SKIP_ARCH_LIBS=		-e '/lib\/lib/d'
+.else
+SKIP_ARCH_LIBS=		-e '/lib\/amd64/d'
+.endif
+
+# Only include libraries that packages depend upon via REQUIRES.
 ${LIBRARY_FILES}:
 	${PKG_INFO} -qL gcc13 | ${SED} -n				\
-		-e's,^${PREFIX}/gcc13/,,'				\
-		-e'/libexec\//d'					\
-		-e'/libgij/d;/libgcj/d;/libjvm/d;/libgo\./d'		\
-		-e'/libcc1plugin/d;/libcp1plugin/d;'			\
-		-e'/lib.*\.so/p' > ${LIBRARY_FILES}
+	    -e 's,^${PREFIX}/gcc13/,,'					\
+	    ${SKIP_ARCH_LIBS}						\
+	    -e '/gdb.py/d'						\
+	    -e '/libatomic.so/p'					\
+	    -e '/libgcc_s.so/p'						\
+	    -e '/libgfortran.so/p'					\
+	    -e '/libgomp.so/p'						\
+	    -e '/libquadmath.so/p'					\
+	    -e '/libstdc++.so/p'					\
+		> ${LIBRARY_FILES}
 
-${OBJECT_FILES}:
-	${PKG_INFO} -qL gcc13 | ${SED} -n				\
-		-e 's,^${PREFIX}/gcc13/,,'				\
-		-e '/\.o/p'						\
-		-e '/libgcc\.a/p'					\
-		-e '/libssp_nonshared\.a/p' > ${OBJECT_FILES}
-
-do-install: ${LIBRARY_FILES} ${OBJECT_FILES}
-	cd ${PREFIX}/gcc13 && ${PAX} \
-		-rw ${DESTDIR}${PREFIX}/gcc13/${MACHINE_GNU_PLATFORM} \
+do-install: ${LIBRARY_FILES}
+	cd ${PREFIX}/gcc13 && ${PAX}					\
+	    -rw ${DESTDIR}${PREFIX}/gcc13/${MACHINE_GNU_PLATFORM}	\
 		< ${LIBRARY_FILES}
-	cd ${PREFIX}/gcc13 && ${PAX} \
-		-r -s ',gcc/${MACHINE_GNU_PLATFORM}/${PKGVERSION_NOREV}/,,' \
-		-w ${DESTDIR}${PREFIX}/gcc13/${MACHINE_GNU_PLATFORM} \
-		< ${OBJECT_FILES}
 
 PRINT_PLIST_AWK+=	{ gsub(/${MACHINE_GNU_PLATFORM}/, "$${MACHINE_GNU_PLATFORM}"); }
 
