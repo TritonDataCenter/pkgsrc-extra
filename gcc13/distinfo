@@ -9,6 +9,7 @@ SHA1 (patch-gcc_config_sol2.h) = e21be5f33fb02264eb5e42222fe30f08bdd0c2ff
 SHA1 (patch-gcc_configure) = 8872d1cdeeec570235ef64314bae4517036758bf
 SHA1 (patch-libsanitizer_sanitizer__common_sanitizer__linux.cpp) = 8bcbe390e743080cfe45eeea4dd61e27caf86a8e
 SHA1 (patch-libstdc++-v3_config_locale_dragonfly_c__locale.cc) = 35c811b889788b55544402917ba02c8857ee39bf
+SHA1 (patch-libstdc++-v3_config_locale_dragonfly_c__locale.h) = a3af59a5d28459671bb50667be79acbcab3d7834
 SHA1 (patch-libstdc++-v3_config_locale_dragonfly_ctype__members.cc) = cb674bfde251493e80064b90f907563b480d8f88
 SHA1 (patch-libstdc++-v3_config_locale_dragonfly_monetary__members.cc) = 7412f5a2a016601abae596d634c0231f8faf5268
 SHA1 (patch-libstdc++-v3_config_locale_dragonfly_numeric__members.cc) = 16f2585cecf513098caf50b07f5f747e3843695d
