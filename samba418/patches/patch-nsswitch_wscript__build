@@ -1,0 +1,16 @@
+$NetBSD: patch-nsswitch_wscript__build,v 1.2 2022/07/21 09:35:19 adam Exp $
+
+Use common library name on SunOS.
+
+--- nsswitch/wscript_build.orig	2022-01-24 10:26:59.000000000 +0000
++++ nsswitch/wscript_build
+@@ -76,8 +76,7 @@ elif Utils.unversioned_sys_platform() ==
+ 	bld.SAMBA_PLUGIN('nss_winbind',
+ 			  source='winbind_nss_solaris.c winbind_nss_linux.c',
+ 			  deps='wbclient',
+-			  realname='nss_winbind.so.1',
+-			  vnum='1')
++			  realname='libnss_winbind.so')
+ elif (host_os.rfind('hpux') > -1):
+ 	bld.SAMBA_PLUGIN('nss_winbind',
+ 			  source='winbind_nss_linux.c',
