@@ -13,7 +13,8 @@ LICENSE=	gnu-gpl-v3
 NO_CHECKSUM=	yes
 CTF_SUPPORTED=	no	# Files already have CTF
 
-DEPENDS+=	samba>4:../../net/samba4
+# Explicitly require the working 4.18.x branch for now.
+DEPENDS+=	samba>=4.18<4.19:../../extra/samba418
 
 BUILD_DEFS+=	PACKAGES
 
@@ -98,7 +99,7 @@ ELFEDIT_ARGS=	-e 'dyn:runpath ${PREFIX}/lib/samba/security/i386'
 
 do-build:
 	${PKGSRC_SETENV} PKG_PATH=${PACKAGES:S/x86_64/i386/}/All \
-		${PKG_ADD_CMD} -P ${PKG_CHROOT} -I -m i386 'samba>4'
+		${PKG_ADD_CMD} -P ${PKG_CHROOT} -I -m i386 'samba>=4.18<4.19'
 .for lib dest in ${SAMBA_LIBS}
 	/usr/bin/elfedit ${ELFEDIT_ARGS} ${PKG_CHROOT}/${PREFIX}/${lib}
 .endfor
