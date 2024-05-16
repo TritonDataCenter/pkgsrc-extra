@@ -5,7 +5,7 @@ removed by subst if USE_GCC_LOCALBASE_PREFIX == "no".
 
 --- gcc/config/sol2.h.orig	2023-08-04 21:07:54.000000000 +0000
 +++ gcc/config/sol2.h
-@@ -103,12 +103,12 @@ along with GCC; see the file COPYING3.
+@@ -103,12 +103,13 @@ along with GCC; see the file COPYING3.
  	    /* C++11 and C++14 are based on C99.	\
  	       libstdc++ makes use of C99 features	\
  	       even for C++98.  */			\
@@ -16,11 +16,12 @@ removed by subst if USE_GCC_LOCALBASE_PREFIX == "no".
  	  default:					\
  	    /* C++17 is based on C11.  */		\
 -	    builtin_define ("__STDC_VERSION__=201112L");\
++	    builtin_define ("_STDC_C99");		\
 +	    builtin_define ("_STDC_C11");		\
  	    break;					\
  	  }						\
  	builtin_define ("_XOPEN_SOURCE=600");		\
-@@ -308,8 +308,9 @@ along with GCC; see the file COPYING3.
+@@ -308,8 +309,9 @@ along with GCC; see the file COPYING3.
  #define LINK_ARCH32_SPEC_BASE \
    "%{YP,*} \
     %{R*} \
@@ -32,7 +33,7 @@ removed by subst if USE_GCC_LOCALBASE_PREFIX == "no".
  
  #undef LINK_ARCH32_SPEC
  #define LINK_ARCH32_SPEC LINK_ARCH32_SPEC_BASE
-@@ -320,8 +321,9 @@ along with GCC; see the file COPYING3.
+@@ -320,8 +322,9 @@ along with GCC; see the file COPYING3.
  #define LINK_ARCH64_SPEC_BASE \
    "%{YP,*} \
     %{R*} \
