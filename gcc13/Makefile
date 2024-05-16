@@ -88,6 +88,15 @@ CONFIGURE_ARGS+=	--with-gnu-as --with-as=${PREFIX}/bin/gas
 CONFIGURE_ARGS+=	--without-gnu-ld --with-ld=/bin/ld
 CONFIGURE_ARGS+=	--with-zstd=no
 
+# If the bootstrap compiler version is identical to the one we are building
+# then disable the full three-stage bootstrap and save a lot of time.
+#
+.include "../../mk/compiler.mk"
+
+.if ${DISTNAME:M*${_GCC_VERSION:Uundefined}}
+CONFIGURE_ARGS+=	--disable-bootstrap
+.endif
+
 #
 # Disable --as-needed as it pulls in libgcc_s as a dependency into libstdc++
 #
