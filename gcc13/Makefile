@@ -89,13 +89,17 @@ CONFIGURE_ARGS+=	--without-gnu-ld --with-ld=/bin/ld
 CONFIGURE_ARGS+=	--with-zstd=no
 
 # If the bootstrap compiler version is identical to the one we are building
-# then disable the full three-stage bootstrap and save a lot of time.
+# then disabling the full three-stage bootstrap saves a lot of time.
 #
-.include "../../mk/compiler.mk"
-
-.if ${DISTNAME:M*${_GCC_VERSION:Uundefined}}
-CONFIGURE_ARGS+=	--disable-bootstrap
-.endif
+# XXX: Unfortunately this fails the toxic library check, somehow libiconv
+# from the bootstrap prefix is leaking into the final binaries.  This must be
+# resolved before this can be enabled.
+#
+#.include "../../mk/compiler.mk"
+#
+#.if ${DISTNAME:M*${_GCC_VERSION:Uundefined}}
+#CONFIGURE_ARGS+=	--disable-bootstrap
+#.endif
 
 #
 # Disable --as-needed as it pulls in libgcc_s as a dependency into libstdc++
