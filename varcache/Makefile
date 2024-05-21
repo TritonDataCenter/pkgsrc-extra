@@ -30,6 +30,9 @@ show-varcache:
 		printf "%s %s\n" ${t:Q} ${${t:Q}:Q}; \
 		@} } | ${SORT} | uniq | ${EGREP} ${VC_MATCH:Q} \
 	| ${AWK} ' \
+	{ \
+		gsub(/${OSX_SDK_PATH:S,/,\\/,g}/, "$${OSX_SDK_PATH}"); \
+	} \
 	/^BUILTIN_PKG/ && ! $$2 { \
 		next; \
 	} \
