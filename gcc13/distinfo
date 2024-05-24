@@ -7,6 +7,7 @@ SHA1 (patch-gcc_Makefile.in) = b5e4026f709137785c164dae37811c5756a3796d
 SHA1 (patch-gcc_config_nvptx_gen-opt.sh) = a2c454d4668efb7aa27bb062eefc8d8f543f8f4f
 SHA1 (patch-gcc_config_sol2.h) = eb847558d507e31d2c433b9ea494925bc6b24a3a
 SHA1 (patch-gcc_configure) = 8872d1cdeeec570235ef64314bae4517036758bf
+SHA1 (patch-gcc_ginclude_stdarg.h) = ac9f0f109ff418ae8ac36c048cdbf160bba58c74
 SHA1 (patch-libsanitizer_sanitizer__common_sanitizer__linux.cpp) = 8bcbe390e743080cfe45eeea4dd61e27caf86a8e
 SHA1 (patch-libstdc++-v3_config_locale_dragonfly_c__locale.cc) = 35c811b889788b55544402917ba02c8857ee39bf
 SHA1 (patch-libstdc++-v3_config_locale_dragonfly_c__locale.h) = a3af59a5d28459671bb50667be79acbcab3d7834
