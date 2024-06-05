@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=	il-jdk-21.0.1-ga
+DISTNAME=	il-jdk-21.0.3-ga
 PKGNAME=	${DISTNAME:S/il-jdk/openjdk21/:S/-ga//}
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_GITHUB:=illumos/}
@@ -91,7 +91,7 @@ SUBST_VARS.libpaths+=	JAVA_HOME
 # Tribblix binary kit (unzip the .zap and point BOOTJDK_DIR at it).
 #
 .if ${MACHINE_PLATFORM:MSunOS-*-x86_64} || make(distinfo) || make (makesum) || make(mdi)
-BOOTSTRAP_JDK:=		openjdk21-21.0.1-x86_64-unknown-illumos.tar.gz
+BOOTSTRAP_JDK:=		openjdk21-21.0.3-x86_64-unknown-illumos.tar.gz
 SITES.${BOOTSTRAP_JDK}=	https://us-central.manta.mnx.io/pkgsrc/public/pkg-bootstraps/
 DISTFILES:=		${DEFAULT_DISTFILES} ${BOOTSTRAP_JDK}
 .endif
@@ -171,6 +171,16 @@ bootstrap: install
 	done
 	(cd ${WRKDIR}/bootstrap; \
 	    ${TAR} -zcf ${PKGNAME}-x86_64-unknown-illumos.tar.gz ${JAVA_NAME})
+	@${ECHO} ""
+	@${ECHO} "Verify correct library paths using the following:"
+	@${ECHO} ""
+	@${ECHO} "	cd ${WRKDIR}/bootstrap"
+	@${ECHO} "	find . -type f | xargs ldd 2>/dev/null | egrep 'not.found|${PREFIX}'"
+	@${ECHO} ""
+	@${ECHO} "If there is no output then this bootstrap kit is ready to go:"
+	@${ECHO} ""
+	@${ECHO} "	${WRKDIR}/bootstrap/${PKGNAME}-x86_64-unknown-illumos.tar.gz"
+	@${ECHO} ""
 .endif
 
 .include "../../converters/libiconv/buildlink3.mk"
@@ -187,8 +197,8 @@ bootstrap: install
 # sun.print.* which is used by java.awt.print.
 BUILDLINK_DEPMETHOD.cups-base?=	build
 .include "../../print/cups-base/buildlink3.mk"
-BUILDLINK_DEPMETHOD.libXt?=     build
+BUILDLINK_DEPMETHOD.libXt?=	build
 .include "../../x11/libXt/buildlink3.mk"
-BUILDLINK_DEPMETHOD.libXrandr?= build
+BUILDLINK_DEPMETHOD.libXrandr?=	build
 .include "../../x11/libXrandr/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
