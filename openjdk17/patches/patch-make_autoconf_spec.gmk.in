@@ -3,7 +3,7 @@ $NetBSD$
 Ensure interim libraries can be found.  These patches are only appropriate for
 pkgsrc, other builds aren't as strict about removing $ORIGIN as us.
 
---- make/autoconf/spec.gmk.in.orig	2023-12-05 15:59:10.000000000 +0000
+--- make/autoconf/spec.gmk.in.orig	2024-06-05 12:04:57.000000000 +0000
 +++ make/autoconf/spec.gmk.in
 @@ -537,12 +537,12 @@ LD := @LD@
  SDKROOT:=@SDKROOT@
@@ -20,7 +20,7 @@ pkgsrc, other builds aren't as strict about removing $ORIGIN as us.
  JDKEXE_LIBS:=@JDKEXE_LIBS@
  
  # LDFLAGS specific to C++ linking.
-@@ -651,14 +651,14 @@ JAVA = $(JAVA_CMD) $(JAVA_FLAGS_BIG) $(J
+@@ -651,17 +651,17 @@ JAVA = $(JAVA_CMD) $(JAVA_FLAGS_BIG) $(J
  JAVA_SMALL = $(JAVA_CMD) $(JAVA_FLAGS_SMALL) $(JAVA_FLAGS)
  JAVAC = $(JAVAC_CMD)
  JAVADOC = $(JAVADOC_CMD)
@@ -30,6 +30,9 @@ pkgsrc, other builds aren't as strict about removing $ORIGIN as us.
 +JAR = LD_LIBRARY_PATH=$(BUILD_JDK)/lib:$(BUILD_JDK)/lib/server $(JAR_CMD)
 +JLINK = LD_LIBRARY_PATH=$(BUILD_JDK)/lib:$(BUILD_JDK)/lib/server $(JLINK_CMD)
 +JMOD = LD_LIBRARY_PATH=$(BUILD_JDK)/lib:$(BUILD_JDK)/lib/server $(JMOD_CMD) $(JAVA_TOOL_FLAGS_SMALL)
+ 
+ JTREG_JDK := @JTREG_JDK@
+ JTREG_JAVA = @FIXPATH@ $(JTREG_JDK)/bin/java $(JAVA_FLAGS_BIG) $(JAVA_FLAGS)
  
  BUILD_JAVA_FLAGS := @BOOTCYCLE_JVM_ARGS_BIG@
 -BUILD_JAVA=@FIXPATH@ $(BUILD_JDK)/bin/java $(BUILD_JAVA_FLAGS)
