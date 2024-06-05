@@ -1,8 +1,8 @@
 $NetBSD: distinfo,v 1.65 2018/12/15 20:27:45 jperkin Exp $
 
-BLAKE2s (il-jdk-11.0.21-ga.tar.gz) = 23560efe2ecc607d912385ffed5b972ebe8cc60f179f4c530ca851c8b856bebc
-SHA512 (il-jdk-11.0.21-ga.tar.gz) = 06f8439bb654712e3f72daa7d4b24cf61d06b5cce3a64624fc5212f5d3c14926dffccf3f80d13990e7124ae0bc8730dd21a6a787eceb69db6fbcfeb374c879e1
-Size (il-jdk-11.0.21-ga.tar.gz) = 116298918 bytes
+BLAKE2s (il-jdk-11.0.23-ga.tar.gz) = 3236da13026a79789612cead5846563e27398e1062fb4dce3774e0f88860ddc2
+SHA512 (il-jdk-11.0.23-ga.tar.gz) = 2d356a66bb436722b7e16b024f7bb62e8d6b60afab36747fe034f8a15ea788a4f96b2f5330dec423447116d957c7cedbd8334cc0166d99b8f175b484f22cfa96
+Size (il-jdk-11.0.23-ga.tar.gz) = 116299241 bytes
 BLAKE2s (openjdk11-11.0.21-x86_64-unknown-illumos.tar.gz) = 96fb79ecbb88444005e372f6ccfc08d5b67415ef92e6f022cae77766d254210e
 SHA512 (openjdk11-11.0.21-x86_64-unknown-illumos.tar.gz) = b459da8f65eac7c3b44dbb612674732132ac1e1724d9aa894296f58dc586e54d05ebce60570252a99af4713ba95059fc097ea8f04ba70b345de5c90ff6fa8ed6
 Size (openjdk11-11.0.21-x86_64-unknown-illumos.tar.gz) = 209717932 bytes

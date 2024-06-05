@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=	il-jdk-11.0.21-ga
+DISTNAME=	il-jdk-11.0.23-ga
 PKGNAME=	${DISTNAME:C/il-jdk/openjdk11/:C/-ga//}
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_GITHUB:=illumos/}
@@ -174,6 +174,16 @@ bootstrap: install
 	done
 	(cd ${WRKDIR}/bootstrap; \
 	    ${TAR} -zcf ${PKGNAME}-x86_64-unknown-illumos.tar.gz ${JAVA_NAME})
+	@${ECHO} ""
+	@${ECHO} "Verify correct library paths using the following:"
+	@${ECHO} ""
+	@${ECHO} "	cd ${WRKDIR}/bootstrap"
+	@${ECHO} "	find . -type f | xargs ldd 2>/dev/null | egrep 'not.found|${PREFIX}'"
+	@${ECHO} ""
+	@${ECHO} "If there is no output then this bootstrap kit is ready to go:"
+	@${ECHO} ""
+	@${ECHO} "	${WRKDIR}/bootstrap/${PKGNAME}-x86_64-unknown-illumos.tar.gz"
+	@${ECHO} ""
 .endif
 
 .include "../../converters/libiconv/buildlink3.mk"
@@ -193,8 +203,8 @@ bootstrap: install
 # sun.print.* which is used by java.awt.print.
 BUILDLINK_DEPMETHOD.cups-base?=	build
 .include "../../print/cups-base/buildlink3.mk"
-BUILDLINK_DEPMETHOD.libXt?=     build
+BUILDLINK_DEPMETHOD.libXt?=	build
 .include "../../x11/libXt/buildlink3.mk"
-BUILDLINK_DEPMETHOD.libXrandr?= build
+BUILDLINK_DEPMETHOD.libXrandr?=	build
 .include "../../x11/libXrandr/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
