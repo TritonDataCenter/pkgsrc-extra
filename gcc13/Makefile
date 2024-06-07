@@ -2,18 +2,18 @@
 #
 # This is a GCC 13.x package specific to SmartOS:
 #
-#   - The GITHUB_TAG is the last commit to the ooce-13_1_0 branch prior to the
+#   - The GITHUB_TAG is the last commit to the ooce-13_3_0 branch prior to the
 #     OmniOS-specific library paths commit (which we do not want).
 #   - Some patches from the SmartOS "miscfix" branch are integrated.
 #   - Sections for non-SunOS are removed for clarity.
 #   - Every modification from the stock build should be clearly documented.
 #
 
-DISTNAME=	gcc13-13.2.0
+DISTNAME=	gcc13-13.3.0
 CATEGORIES=	extra lang
 MASTER_SITES=	${MASTER_SITE_GITHUB:=omniosorg/}
 GITHUB_PROJECT=	gcc
-GITHUB_TAG=	6f08c211bda1e86402b7d8aead900845bf245f9b
+GITHUB_TAG=	37558d7e1fe0263ed5202ab9074bc0bb00f2155a
 
 MAINTAINER=	jperkin@pkgsrc.org
 HOMEPAGE=	https://gcc.gnu.org/
