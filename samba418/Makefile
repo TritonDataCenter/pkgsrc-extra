@@ -210,6 +210,7 @@ REPLACE_PYTHON+=	source4/scripting/bin/*
 .include "../../archivers/libarchive/buildlink3.mk"
 .include "../../converters/libiconv/buildlink3.mk"
 .include "../../databases/lmdb/buildlink3.mk"
+.include "../../databases/tdb/buildlink3.mk"
 .include "../../devel/cmocka/buildlink3.mk"
 .include "../../devel/gettext-lib/buildlink3.mk"
 .include "../../devel/popt/buildlink3.mk"

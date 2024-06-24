@@ -676,7 +676,6 @@ ${PLIST.ads}lib/samba/ldb/lazy_commit.${SOEXT}
 lib/samba/ldb/ldb.${SOEXT}
 lib/samba/ldb/ldbsamba_extensions.${SOEXT}
 ${PLIST.ads}lib/samba/ldb/linked_attributes.${SOEXT}
-lib/samba/ldb/mdb.${SOEXT}
 ${PLIST.ads}lib/samba/ldb/new_partition.${SOEXT}
 ${PLIST.ads}lib/samba/ldb/objectclass.${SOEXT}
 ${PLIST.ads}lib/samba/ldb/objectclass_attrs.${SOEXT}
@@ -777,7 +776,6 @@ lib/samba/private/libkrb5-samba4.so
 lib/samba/private/libkrb5samba-samba4.so
 lib/samba/private/libldb-cmdline-samba4.so
 lib/samba/private/libldb-key-value-samba4.so
-lib/samba/private/libldb-mdb-int-samba4.so
 lib/samba/private/libldb-samba4.so
 lib/samba/private/libldb-tdb-err-map-samba4.so
 lib/samba/private/libldb-tdb-int-samba4.so
