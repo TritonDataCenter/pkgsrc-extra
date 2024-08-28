@@ -9,7 +9,7 @@
 # targetted for "tools" builds.
 #
 
-DISTNAME=	smartos-test-tools-20231129
+DISTNAME=	smartos-test-tools-20240828
 CATEGORIES=	sysutils
 MASTER_SITES=	# empty
 DISTFILES=	# empty
@@ -34,6 +34,7 @@ PYTHON_VERSIONS_ACCEPTED=	${PYTHON_VERSION_DEFAULT}
 .include "../../lang/python/pyversion.mk"
 
 DEPENDS+=	coreutils-[0-9]*:../../sysutils/coreutils
+DEPENDS+=	fio-[0-9]*:../../benchmarks/fio
 DEPENDS+=	gmake-[0-9]*:../../devel/gmake
 DEPENDS+=	sudo-[0-9]*:../../security/sudo
 
