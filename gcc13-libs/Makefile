@@ -14,25 +14,31 @@ USE_TOOLS+=	pax
 
 NO_BUILD=	yes
 
-CHECK_SHLIBS=		no		# RPATH will find gcc13 libraries
 CHECK_SSP_SUPPORTED=	no		# Clean CFLAGS removes -fstack*
 
 BUILD_DEPENDS+=		gcc13-[0-9]*:../../extra/gcc13
 
-INSTALLATION_DIRS+=	gcc13/${MACHINE_GNU_PLATFORM}/lib
-
 LIBRARY_FILES=	${WRKDIR}/lib_files
 
-# Exclude 32-bit libraries from 64-bit package, and vice versa.
+#
+# Exclude 32-bit libraries from 64-bit package, and vice versa.  Also set the
+# correct library path so that we can update the RUNPATH and fix CHECK_SHLIBS.
+#
 .if ${MACHINE_ARCH} == "x86_64"
+LIBPATH=		gcc13/${MACHINE_GNU_PLATFORM}/lib/amd64
 SKIP_ARCH_LIBS=		-e '/lib\/lib/d'
 .else
+LIBPATH=		gcc13/${MACHINE_GNU_PLATFORM}/lib
 SKIP_ARCH_LIBS=		-e '/lib\/amd64/d'
 .endif
 
+INSTALLATION_DIRS+=	${LIBPATH}
+
+ELFEDIT?=	/usr/bin/elfedit
+
 # Only include libraries that packages depend upon via REQUIRES.
 ${LIBRARY_FILES}:
-	${PKG_INFO} -qL gcc13 | ${SED} -n				\
+	${RUN} ${PKG_INFO} -qL gcc13 | ${SED} -n			\
 	    -e 's,^${PREFIX}/gcc13/,,'					\
 	    ${SKIP_ARCH_LIBS}						\
 	    -e '/gdb.py/d'						\
@@ -45,9 +51,12 @@ ${LIBRARY_FILES}:
 		> ${LIBRARY_FILES}
 
 do-install: ${LIBRARY_FILES}
-	cd ${PREFIX}/gcc13 && ${PAX}					\
+	${RUN} cd ${PREFIX}/gcc13 && ${PAX}				\
 	    -rw ${DESTDIR}${PREFIX}/gcc13/${MACHINE_GNU_PLATFORM}	\
 		< ${LIBRARY_FILES}
+	${RUN} for f in ${DESTDIR}${PREFIX}/${LIBPATH}/*.so; do		\
+		${ELFEDIT} -e 'dyn:runpath ${DESTDIR}${PREFIX}/${LIBPATH}' $$f; \
+	done
 
 PRINT_PLIST_AWK+=	{ gsub(/${MACHINE_GNU_PLATFORM}/, "$${MACHINE_GNU_PLATFORM}"); }
 
