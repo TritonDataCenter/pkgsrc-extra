@@ -55,7 +55,7 @@ do-install: ${LIBRARY_FILES}
 	    -rw ${DESTDIR}${PREFIX}/gcc13/${MACHINE_GNU_PLATFORM}	\
 		< ${LIBRARY_FILES}
 	${RUN} for f in ${DESTDIR}${PREFIX}/${LIBPATH}/*.so; do		\
-		${ELFEDIT} -e 'dyn:runpath ${DESTDIR}${PREFIX}/${LIBPATH}' $$f; \
+		${ELFEDIT} -e 'dyn:runpath ${PREFIX}/${LIBPATH}' $$f;	\
 	done
 
 PRINT_PLIST_AWK+=	{ gsub(/${MACHINE_GNU_PLATFORM}/, "$${MACHINE_GNU_PLATFORM}"); }
