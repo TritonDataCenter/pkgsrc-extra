@@ -1,0 +1,15 @@
+$NetBSD$
+
+Do not build tests, require gpg-agent.
+
+--- Makefile.in.orig	2024-09-05 10:01:47.928778001 +0000
++++ Makefile.in
+@@ -499,7 +499,7 @@ DISTCLEANFILES = g10defs.h
+ @HAVE_W32_SYSTEM_FALSE@tests = tests
+ @HAVE_W32_SYSTEM_TRUE@tests = 
+ SUBDIRS = m4 gl include jnlib common ${kbx} \
+- ${gpg} ${keyserver} ${sm} ${agent} ${scd} ${tools} po ${doc} ${tests}
++ ${gpg} ${keyserver} ${sm} ${agent} ${scd} ${tools} po ${doc}
+ 
+ dist_doc_DATA = README
+ gen_start_date = 2011-12-01T06:00:00

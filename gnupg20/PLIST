@@ -1,0 +1,8 @@
+@comment $NetBSD: PLIST,v 1.6 2015/02/21 09:08:53 wiz Exp $
+bin/gpg2
+bin/gpgv2
+libexec/gpg2keys_curl
+libexec/gpg2keys_finger
+libexec/gpg2keys_hkp
+share/doc/gnupg/README
+share/gnupg/gpg-conf.skel
