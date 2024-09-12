@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=	tailscale-1.64.2
+DISTNAME=	tailscale-1.72.1
 CATEGORIES=	net
 MASTER_SITES=	${MASTER_SITE_GITHUB:=nshalman/}
 GITHUB_TAG=	v${PKGVERSION_NOREV}-sunos
@@ -10,7 +10,7 @@ HOMEPAGE=	https://tailscale.com/
 COMMENT=	The easiest, most secure way to use WireGuard and 2FA
 LICENSE=	modified-bsd
 
-GO_VERSION_REQD=	122
+GO_VERSION_REQD+=	122
 
 GO_LDFLAGS=	-X tailscale.com/version.Long=${PKGVERSION_NOREV}
 GO_LDFLAGS+=	-X tailscale.com/version.Short=${PKGVERSION_NOREV}
