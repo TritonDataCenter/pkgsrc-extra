@@ -1,0 +1,16 @@
+$NetBSD$
+
+BLAKE2s (gcc14-14.2.0-c774b68ffb026af9bbc0222c34158ff4eb72c5be.tar.gz) = 3e562ee3c34830f75bd98dc2dda8b23460b77799d17d677c7796d2ed85cb7a35
+SHA512 (gcc14-14.2.0-c774b68ffb026af9bbc0222c34158ff4eb72c5be.tar.gz) = d5164187542443ab071426e41747b9486a440be388eab0476c07b88b7cc72f58ebe3ee38cca12d792ef9916a07626e58293ca43c7e3eecd245f68361bc0d7b10
+Size (gcc14-14.2.0-c774b68ffb026af9bbc0222c34158ff4eb72c5be.tar.gz) = 144218595 bytes
+SHA1 (patch-gcc_Makefile.in) = b5e4026f709137785c164dae37811c5756a3796d
+SHA1 (patch-gcc_config_sol2.h) = eb847558d507e31d2c433b9ea494925bc6b24a3a
+SHA1 (patch-gcc_ginclude_stdarg.h) = ac9f0f109ff418ae8ac36c048cdbf160bba58c74
+SHA1 (patch-libsanitizer_sanitizer__common_sanitizer__linux.cpp) = 8bcbe390e743080cfe45eeea4dd61e27caf86a8e
+SHA1 (patch-libstdc++-v3_config_locale_dragonfly_c__locale.cc) = 35c811b889788b55544402917ba02c8857ee39bf
+SHA1 (patch-libstdc++-v3_config_locale_dragonfly_c__locale.h) = a3af59a5d28459671bb50667be79acbcab3d7834
+SHA1 (patch-libstdc++-v3_config_locale_dragonfly_ctype__members.cc) = cb674bfde251493e80064b90f907563b480d8f88
+SHA1 (patch-libstdc++-v3_config_locale_dragonfly_monetary__members.cc) = 7412f5a2a016601abae596d634c0231f8faf5268
+SHA1 (patch-libstdc++-v3_config_locale_dragonfly_numeric__members.cc) = f98634caa68326fb5f645c92b25eab76fbcffd38
+SHA1 (patch-libstdc++-v3_config_locale_dragonfly_time__members.cc) = 1e2a25bcccde1af5419aa14cb37cdb4a84c504ab
+SHA1 (patch-libstdc++-v3_configure) = af95b0b20a4e419309925ef55dbe67bd0ea798aa
