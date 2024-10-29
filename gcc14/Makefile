@@ -87,7 +87,7 @@ CONFIGURE_ARGS+=	--enable-__cxa_atexit
 CONFIGURE_ARGS+=	--enable-initfini-array
 CONFIGURE_ARGS+=	--disable-nls
 CONFIGURE_ARGS+=	--disable-libitm
-CONFIGURE_ARGS+=	--with-build-config=bootstrap-debug-lean
+CONFIGURE_ARGS+=	--with-build-config=bootstrap-lean
 CONFIGURE_ARGS+=	--with-gnu-as --with-as=${PREFIX}/bin/gas
 CONFIGURE_ARGS+=	--without-gnu-ld --with-ld=/bin/ld
 CONFIGURE_ARGS+=	--with-zstd=no
