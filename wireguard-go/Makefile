@@ -1,16 +1,16 @@
 # $NetBSD$
 
-DISTNAME=	wireguard-go-0.0.20220316
+DISTNAME=	wireguard-go-0.0.20230223
 CATEGORIES=	net
 MASTER_SITES=	${MASTER_SITE_GITHUB:=nshalman/}
-GITHUB_TAG=	c8619d9e5497cf41e5c451dca83c58d9fd67eb5c
+GITHUB_TAG=	15692aa1ee10a9d35871afd3e60687be9217d73c
 
 MAINTAINER=	jperkin@pkgsrc.org
 HOMEPAGE=	https://github.com/nshalman/wireguard-go
 COMMENT=	Implementation of WireGuard in Go
 LICENSE=	mit
 
-# Support for 1.21 is in master but not this version.  Remove when updated.
+# imports gvisor.dev/gvisor/pkg/gohacks: build constraints exclude all Go files
 GO_VERSION_REQD=	120
 
 .include "go-modules.mk"
