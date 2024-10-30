@@ -18,11 +18,22 @@ BUILDLINK_AUTO_VARS.gcc13-libs=	no
 SPECS_PKGSRC=		${WRAPPER_DIR}/specs.pkgsrc
 WRAPPER_TARGETS+=	${SPECS_PKGSRC}
 
+.if ${MACHINE_ARCH} == "x86_64"
+LINK_ARCH_DEFAULT=	link_arch64
+LINK_LIBGCC_DEFAULT=	link_libgcc_arch64
+.else
+LINK_ARCH_DEFAULT=	link_arch32
+LINK_LIBGCC_DEFAULT=	link_libgcc_arch32
+.endif
+
 ${SPECS_PKGSRC}:
-	@${SED} -e \
-	    's,@LIBGCC_PREFIX@,${BUILDLINK_PREFIX.gcc13-libs}/gcc13/${MACHINE_GNU_PLATFORM},g' \
-	    < ${BUILDLINK_PKGSRCDIR.gcc13-libs}/files/specs.pkgsrc \
-	    > ${SPECS_PKGSRC}
+	${SED} \
+	    -e '/^#/d' \
+	    -e 's,@LINK_ARCH_DEFAULT@,${LINK_ARCH_DEFAULT},g' \
+	    -e 's,@LINK_LIBGCC_DEFAULT@,${LINK_LIBGCC_DEFAULT},g' \
+	    -e 's,@LIBGCC_PREFIX@,${BUILDLINK_PREFIX.gcc13-libs}/gcc13/${MACHINE_GNU_PLATFORM},g' \
+		< ${BUILDLINK_PKGSRCDIR.gcc13-libs}/files/specs.pkgsrc \
+		> ${SPECS_PKGSRC}
 
 _WRAP_EXTRA_ARGS.CC+=	-specs=${SPECS_PKGSRC}
 _WRAP_EXTRA_ARGS.CXX+=	-specs=${SPECS_PKGSRC}
