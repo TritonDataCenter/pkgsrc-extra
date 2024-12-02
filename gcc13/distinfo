@@ -3,9 +3,9 @@ $NetBSD$
 BLAKE2s (gcc13-13.3.0-37558d7e1fe0263ed5202ab9074bc0bb00f2155a.tar.gz) = c11ca7ab574c6fb9572bea576d6223da2ff042698ba94a75e4a5245453003dff
 SHA512 (gcc13-13.3.0-37558d7e1fe0263ed5202ab9074bc0bb00f2155a.tar.gz) = 9abf518beedc4655da75634f1d410d3222cd12a6792dce27c3ec1fcb754e5580815ab0bf26009a055e6d2b68f0e21e3f188068ffcdca700939db850e4aa9b431
 Size (gcc13-13.3.0-37558d7e1fe0263ed5202ab9074bc0bb00f2155a.tar.gz) = 138175394 bytes
-SHA1 (patch-gcc_Makefile.in) = b5e4026f709137785c164dae37811c5756a3796d
+SHA1 (patch-gcc_Makefile.in) = c16bf00aff3fe212cc79cf703210e3cda141bf3a
 SHA1 (patch-gcc_config_nvptx_gen-opt.sh) = a2c454d4668efb7aa27bb062eefc8d8f543f8f4f
-SHA1 (patch-gcc_config_sol2.h) = eb847558d507e31d2c433b9ea494925bc6b24a3a
+SHA1 (patch-gcc_config_sol2.h) = 5dd0dd148f65292a37512ea71f9c8b69a9feacfa
 SHA1 (patch-gcc_configure) = 8872d1cdeeec570235ef64314bae4517036758bf
 SHA1 (patch-gcc_ginclude_stdarg.h) = ac9f0f109ff418ae8ac36c048cdbf160bba58c74
 SHA1 (patch-libsanitizer_sanitizer__common_sanitizer__linux.cpp) = 8bcbe390e743080cfe45eeea4dd61e27caf86a8e

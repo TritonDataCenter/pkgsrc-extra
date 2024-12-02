@@ -1,7 +1,12 @@
 $NetBSD$
 
+Switch to _STDC_C99/_STDC_C11.  This fixes third party software that assumes
+that when __STDC_VERSION__ is defined it must be C code (e.g. math/py-scipy).
+
 Add ${PREFIX}/lib to the default library search path.  These changes are
-removed by subst if USE_GCC_LOCALBASE_PREFIX == "no".
+removed by subst if USE_GCC_LOCALBASE_PREFIX == "no", and are also overridden
+by gcc13-libs when building inside a pkgsrc environment, as this conflicts
+with buildlink.
 
 --- gcc/config/sol2.h.orig	2023-08-04 21:07:54.000000000 +0000
 +++ gcc/config/sol2.h

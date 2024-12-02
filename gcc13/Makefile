@@ -88,12 +88,18 @@ CONFIGURE_ARGS+=	--with-gnu-as --with-as=${PREFIX}/bin/gas
 CONFIGURE_ARGS+=	--without-gnu-ld --with-ld=/bin/ld
 CONFIGURE_ARGS+=	--with-zstd=no
 
+#
 # If the bootstrap compiler version is identical to the one we are building
 # then disabling the full three-stage bootstrap saves a lot of time.
 #
-# XXX: Unfortunately this fails the toxic library check, somehow libiconv
-# from the bootstrap prefix is leaking into the final binaries.  This must be
-# resolved before this can be enabled.
+# TODO: Unfortunately this fails the toxic library check.  First, libraries
+# from the bootstrap gcc PREFIX will be linked against due to us enabling
+# USE_GCC_LOCALBASE_PREFIX above.  Overriding the link_arch* specs to remove
+# them helps, but then we end up linking against e.g. /usr/lib/libgcc_s.so.1
+# due to link_libgcc.  Investigate a clean way to set this.
+#
+# The full bootstrap works because our -DLINK_LIBGCC_SPEC override is used
+# for the final stage.
 #
 #.include "../../mk/compiler.mk"
 #

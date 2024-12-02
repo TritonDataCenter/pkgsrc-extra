@@ -1,8 +1,13 @@
 $NetBSD$
 
-Ensure libgcc from this GCC is found before others.  Note that there must
-not be a whitespace between $(LINKER_RPATH_FLAG) and the path.  Otherwise
-the flag may be misinterpreted by the linker (e.g. Apple ld).
+Ensure libgcc from either the corresponding gcc-libs package (preferred) or
+this gcc package is found first.  Note that there must not be any whitespace
+between $(LINKER_RPATH_FLAG) and the path, otherwise the flag may be
+misinterpreted by the linker (e.g. Apple ld).
+
+This only really applies to builds performed outside of pkgsrc.  When using
+one of our gcc-libs packages, a custom specs is used to override link_libgcc
+and explicitly use the one from gcc-libs.
 
 Disable fixincludes, which does nothing but break everything, and always
 has.  See joyent/pkgsrc-legacy#270 and others.
