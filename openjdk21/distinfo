@@ -1,8 +1,8 @@
 $NetBSD$
 
-BLAKE2s (il-jdk-21.0.3-ga.tar.gz) = 20c364de223ee93d231ab78edad3942a1775ff187c7d183982b0fcf2158f85ad
-SHA512 (il-jdk-21.0.3-ga.tar.gz) = b3b5d075dd5ce5f840f6f7fde5670fa4122dc0ad8d916f9fce9c45f881348e1d6202a1402c526df3cd84eb39bcb8410eb144c6771d75850f213418714ecc7344
-Size (il-jdk-21.0.3-ga.tar.gz) = 112558532 bytes
+BLAKE2s (il-jdk-21.0.5-ga.tar.gz) = d836eaea8cfb6cf708d98e5bd42af9b37674ac01c68cae93b864af5e2c887dd5
+SHA512 (il-jdk-21.0.5-ga.tar.gz) = 84246ae7d6fae2e7f0ffbbc7e40bd458a8b1ca2a26296c6daa5dbc0afd55703da795366a1e7f6522877b207c0502c51b8aedb69fe576c7ce5bf618fc534da951
+Size (il-jdk-21.0.5-ga.tar.gz) = 112826273 bytes
 BLAKE2s (openjdk21-21.0.3-x86_64-unknown-illumos.tar.gz) = e291388ec75474d1c2e182aa19143cf2e40761149823b1fa10040c1e9ec05b80
 SHA512 (openjdk21-21.0.3-x86_64-unknown-illumos.tar.gz) = 6278a6aca25f02c96a8c245e094c4072e6cc31dd81f61948edbdc145674d273fa16e7035cac527f7acb709a29700d44da35cd04251118654188819ef8b2f608e
 Size (openjdk21-21.0.3-x86_64-unknown-illumos.tar.gz) = 223974648 bytes

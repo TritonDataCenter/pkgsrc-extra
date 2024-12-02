@@ -237,6 +237,7 @@ java/${JAVA_NAME}/legal/java.base/c-libutl.md
 java/${JAVA_NAME}/legal/java.base/cldr.md
 java/${JAVA_NAME}/legal/java.base/icu.md
 java/${JAVA_NAME}/legal/java.base/public_suffix.md
+java/${JAVA_NAME}/legal/java.base/siphash.md
 java/${JAVA_NAME}/legal/java.base/unicode.md
 java/${JAVA_NAME}/legal/java.compiler/ADDITIONAL_LICENSE_INFO
 java/${JAVA_NAME}/legal/java.compiler/ASSEMBLY_EXCEPTION
