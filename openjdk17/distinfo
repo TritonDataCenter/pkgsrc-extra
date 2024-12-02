@@ -1,8 +1,8 @@
 $NetBSD$
 
-BLAKE2s (il-jdk-17.0.11-ga.tar.gz) = 4b66cede606641aadb0df774cf5e44f8d1a06d0531fc661fe2a20fa7c6f30fce
-SHA512 (il-jdk-17.0.11-ga.tar.gz) = c456c52b07fef01c3d6fefdc34638c8feb9b753ac28196af32bf86e541d85a49466d44223e402a550375ba4b01a786ab9da4b8387a66f4357f6bb5c0491f2904
-Size (il-jdk-17.0.11-ga.tar.gz) = 106764276 bytes
+BLAKE2s (il-jdk-17.0.13-ga.tar.gz) = 8af9707ff83b9ac9554e759a483108edd0c9af631bb2ac791a39d2af894517ab
+SHA512 (il-jdk-17.0.13-ga.tar.gz) = 2c4a888d743f3695b7cd36e97d23719ce54403a268fbedaa95770fd9d96a6924d6ddc4b94a961411402ab3cbc80bfcfefb122ca1628cae2b519de99842b34637
+Size (il-jdk-17.0.13-ga.tar.gz) = 107509250 bytes
 BLAKE2s (openjdk17-17.0.9-x86_64-unknown-illumos.tar.gz) = 26e97f11e63c85259b72207d6dd6391d687d7ff5772fb7238f6d19aa5faa46dd
 SHA512 (openjdk17-17.0.9-x86_64-unknown-illumos.tar.gz) = c035f1e57c0e590b9d58c3c81ee3c323495b951a41e1c237a97bd73a49e9c56ef35d789259daba7ed642477a2ceea7cb4b416d030bc29a1dd9304c2418ce977f
 Size (openjdk17-17.0.9-x86_64-unknown-illumos.tar.gz) = 208922108 bytes
