@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=	tailscale-1.74.0
+DISTNAME=	tailscale-1.78.1
 CATEGORIES=	net
 MASTER_SITES=	${MASTER_SITE_GITHUB:=nshalman/}
 GITHUB_TAG=	v${PKGVERSION_NOREV}-sunos
