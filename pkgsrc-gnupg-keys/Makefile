@@ -11,10 +11,10 @@
 # with netpgp and still causes warnings if available in the keyring.
 #
 
-DISTNAME=	pkgsrc-gnupg-keys-20231210
+DISTNAME=	pkgsrc-gnupg-keys-20241231
 CATEGORIES=	security
-MASTER_SITES=	#empty
-DISTFILES=	#empty
+MASTER_SITES=	# empty
+DISTFILES=	# empty
 
 MAINTAINER=	jperkin@pkgsrc.org
 HOMEPAGE=	https://pkgsrc.smartos.org/
@@ -27,6 +27,7 @@ NO_CHECKSUM=	yes
 INSTALLATION_DIRS=	share/gnupg
 
 do-install:
-	${INSTALL_DATA} ${FILESDIR}/pkgsrc-security.gpg ${DESTDIR}${PREFIX}/share/gnupg/
+	${INSTALL_DATA} ${FILESDIR}/pkgsrc-security.gpg \
+	    ${DESTDIR}${PREFIX}/share/gnupg/
 
 .include "../../mk/bsd.pkg.mk"
