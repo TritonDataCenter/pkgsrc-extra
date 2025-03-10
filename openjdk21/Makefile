@@ -12,6 +12,11 @@ HOMEPAGE=	http://openjdk.java.net/
 COMMENT=	Open-source implementation of the Java Platform, Standard Edition
 LICENSE=	gnu-gpl-v2
 
+PATCHFILES=	illumos-zgc.patch
+PATCH_SITES=	https://raw.githubusercontent.com/tribblix/build/49524f77/patches/openjdk21/
+
+PATCH_DIST_STRIP=	-p1
+
 JAVA_NAME=	openjdk21
 JAVA_HOME=	${PREFIX}/java/${JAVA_NAME}
 JAVA_WRAPPERS=	jar jarsigner java javac javadoc javap jcmd jconsole jdb
