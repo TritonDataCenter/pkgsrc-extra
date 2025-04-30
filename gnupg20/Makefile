@@ -1,15 +1,13 @@
 # $NetBSD: Makefile,v 1.70 2017/08/24 20:03:38 adam Exp $
 #
-# Stripped down, modified version of gnupg20.  With the introduction of
-# libassuan 3.x into pkgsrc, gpg-agent no longer builds.  Thus, until netpgp
-# is finally updated to handle newer GPG keys, the solution is to run an agent
-# from an older gnupg20 package, while signing packages with this version.
+# Stripped down, modified version of gnupg20, required as netpgpverify is
+# unable to handle newer GnuPG key formats.
 #
 
 DISTNAME=	gnupg-2.0.31
 PKGNAME=	${DISTNAME:S/gnupg/gnupg20/}
 CATEGORIES=	security
-MASTER_SITES=	ftp://ftp.gnupg.org/gcrypt/gnupg/
+MASTER_SITES=	${MASTER_SITE_GNUPG:=gnupg/}
 EXTRACT_SUFX=	.tar.bz2
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -26,7 +24,6 @@ CONFIGURE_ARGS+=	--sharedstatedir=${VARBASE}
 CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
 CONFIGURE_ARGS+=	--with-pinentry-pgm=${PREFIX}/bin/pinentry
 CONFIGURE_ARGS+=	--disable-gpgsm
-CONFIGURE_ARGS+=	--disable-agent
 CONFIGURE_ARGS+=	--disable-scdaemon
 CONFIGURE_ARGS+=	--disable-tools
 CONFIGURE_ARGS+=	--disable-doc
