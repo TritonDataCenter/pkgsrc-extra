@@ -2,18 +2,18 @@
 #
 # This is a GCC 14.x package specific to SmartOS:
 #
-#   - The GITHUB_TAG is the last commit to the ooce-14_2_0 branch prior to the
+#   - The GITHUB_TAG is the last commit to the ooce-14_3_0 branch prior to the
 #     OmniOS-specific library paths commit (which we do not want).
 #   - Some patches from the SmartOS "miscfix" branch are integrated.
 #   - Sections for non-SunOS are removed for clarity.
 #   - Every modification from the stock build should be clearly documented.
 #
 
-DISTNAME=	gcc14-14.2.0
+DISTNAME=	gcc14-14.3.0
 CATEGORIES=	extra lang
 MASTER_SITES=	${MASTER_SITE_GITHUB:=omniosorg/}
 GITHUB_PROJECT=	gcc
-GITHUB_TAG=	c774b68ffb026af9bbc0222c34158ff4eb72c5be
+GITHUB_TAG=	ef82a73d9c34b24d5e041872d56c844313bca2a5
 
 MAINTAINER=	jperkin@pkgsrc.org
 HOMEPAGE=	https://gcc.gnu.org/
@@ -94,9 +94,14 @@ CONFIGURE_ARGS+=	--with-zstd=no
 # If the bootstrap compiler version is identical to the one we are building
 # then disabling the full three-stage bootstrap saves a lot of time.
 #
-# XXX: Unfortunately this fails the toxic library check, somehow libiconv
-# from the bootstrap prefix is leaking into the final binaries.  This must be
-# resolved before this can be enabled.
+# TODO: Unfortunately this fails the toxic library check.  First, libraries
+# from the bootstrap gcc PREFIX will be linked against due to us enabling
+# USE_GCC_LOCALBASE_PREFIX above.  Overriding the link_arch* specs to remove
+# them helps, but then we end up linking against e.g. /usr/lib/libgcc_s.so.1
+# due to link_libgcc.  Investigate a clean way to set this.
+#
+# The full bootstrap works because our -DLINK_LIBGCC_SPEC override is used
+# for the final stage.
 #
 #.include "../../mk/compiler.mk"
 #

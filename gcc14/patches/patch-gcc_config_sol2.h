@@ -1,5 +1,8 @@
 $NetBSD$
 
+Switch to _STDC_C99/_STDC_C11.  This fixes third party software that assumes
+that when __STDC_VERSION__ is defined it must be C code (e.g. math/py-scipy).
+
 Add ${PREFIX}/lib to the default library search path.  These changes are
 removed by subst if USE_GCC_LOCALBASE_PREFIX == "no".
 
