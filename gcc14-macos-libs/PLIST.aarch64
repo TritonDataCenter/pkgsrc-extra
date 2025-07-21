@@ -1,0 +1,16 @@
+@comment $NetBSD$
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libatomic.1.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libatomic.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libgcc_s.1.1.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libgfortran.5.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libgfortran.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libgomp.1.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libgomp.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libitm.1.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libitm.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libquadmath.0.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libquadmath.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libssp.0.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libssp.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libstdc++.6.dylib
+gcc14/${MACHINE_GNU_PLATFORM}/lib/libstdc++.dylib

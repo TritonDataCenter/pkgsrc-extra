@@ -1,0 +1,7 @@
+#
+# Any comments here will be stripped out of the final specs file by sed.
+#
+# Simplified specs for gcc14-macos-libs.  We only need to set PREFIX.
+
+*link_libgcc:
+%D -L@LIBGCC_PREFIX@/lib
