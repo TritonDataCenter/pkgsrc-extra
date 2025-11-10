@@ -5,7 +5,7 @@ BUILDLINK_TREE+=	gcc13-libs
 .if !defined(GCC13_LIBS_BUILDLINK3_MK)
 GCC13_LIBS_BUILDLINK3_MK:=
 
-BUILDLINK_API_DEPENDS.gcc13-libs+=	gcc13-libs>=13.2.0
+BUILDLINK_API_DEPENDS.gcc13-libs+=	gcc13-libs>=13.4.0
 BUILDLINK_PKGSRCDIR.gcc13-libs=		../../extra/gcc13-libs
 BUILDLINK_DEPMETHOD.gcc13-libs?=	full
 

@@ -1,6 +1,6 @@
 # $NetBSD$
 
-PKGNAME=	gcc13-libs-13.3.0
+PKGNAME=	gcc13-libs-13.4.0
 CATEGORIES=	extra lang
 MASTER_SITES=	# empty
 DISTFILES=	# empty
