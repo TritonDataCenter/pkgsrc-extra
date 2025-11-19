@@ -1,13 +1,14 @@
 $NetBSD: distinfo,v 1.65 2018/12/15 20:27:45 jperkin Exp $
 
-BLAKE2s (il-jdk-11.0.25-ga.tar.gz) = bc7a92cc2184a41290225bf8a3c80e6a4f69d523dbc4ad8fdb91ff800230c581
-SHA512 (il-jdk-11.0.25-ga.tar.gz) = 0a261f5289a35385db279ead6f0e1df92efb352664949d1753573ded1184253be25cb71c73eb755e08b05bf2bfb722f5d53c3bb06e539adb4d60f0ad2faf1c9a
-Size (il-jdk-11.0.25-ga.tar.gz) = 116543317 bytes
+BLAKE2s (il-jdk-11.0.29-ga.tar.gz) = e79089b16e91ac8ced904daf13800f9489e40f1cb0f1679e1da54192c112471b
+SHA512 (il-jdk-11.0.29-ga.tar.gz) = c32959c06708cda16c39248144cb4be824d784988ea00d0f63d38815a7cd959e87b0a08f0545339ce66f9e74d5640a03fd6bc96aaa4e2109cbf2fc2a35e935bb
+Size (il-jdk-11.0.29-ga.tar.gz) = 116619567 bytes
 BLAKE2s (openjdk11-11.0.21-x86_64-unknown-illumos.tar.gz) = 96fb79ecbb88444005e372f6ccfc08d5b67415ef92e6f022cae77766d254210e
 SHA512 (openjdk11-11.0.21-x86_64-unknown-illumos.tar.gz) = b459da8f65eac7c3b44dbb612674732132ac1e1724d9aa894296f58dc586e54d05ebce60570252a99af4713ba95059fc097ea8f04ba70b345de5c90ff6fa8ed6
 Size (openjdk11-11.0.21-x86_64-unknown-illumos.tar.gz) = 209717932 bytes
 SHA1 (patch-make_GenerateLinkOptData.gmk) = 1011d18d480c05c734a86559e35e615a2c049a72
 SHA1 (patch-make_autoconf_lib-bundled.m4) = d1fbc58b97b776066b9510d20cd965eac5776883
+SHA1 (patch-make_autoconf_spec.gmk.in) = 84347970b0a149eee6c2d61f34d75f0089d1fa5e
 SHA1 (patch-make_launcher_Launcher-jdk.pack.gmk) = 59f681c2fa544da970f45a7c72461e2c27c212ca
 SHA1 (patch-make_launcher_LauncherCommon.gmk) = 8bb7ad7a6d08370c4267e854fbee8694630ebb6b
 SHA1 (patch-src_hotspot_os_solaris_os__solaris.cpp) = 3b03703234c0c509ec999daf65511489baa521d7

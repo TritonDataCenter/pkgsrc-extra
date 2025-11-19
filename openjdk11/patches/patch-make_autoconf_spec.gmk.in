@@ -1,0 +1,19 @@
+$NetBSD$
+
+--- make/autoconf/spec.gmk.in.orig	2025-11-18 15:47:37.847297784 +0000
++++ make/autoconf/spec.gmk.in
+@@ -521,12 +521,12 @@ LD_JAOTC:=@LD_JAOTC@
+ SDKROOT:=@SDKROOT@
+ 
+ # LDFLAGS used to link the jdk native libraries (C-code)
+-LDFLAGS_JDKLIB:=@LDFLAGS_JDKLIB@
++LDFLAGS_JDKLIB:=-Xlinker -R@prefix@/java/openjdk11/lib -Xlinker -R@prefix@/java/openjdk11/lib/jli -Xlinker -R@prefix@/java/openjdk11/lib/server @LDFLAGS_JDKLIB@
+ JDKLIB_LIBS:=@JDKLIB_LIBS@
+ GLOBAL_LIBS:=@GLOBAL_LIBS@
+ 
+ # LDFLAGS used to link the jdk native launchers (C-code)
+-LDFLAGS_JDKEXE:=@LDFLAGS_JDKEXE@
++LDFLAGS_JDKEXE:=-Xlinker -R@prefix@/java/openjdk11/lib/jli @LDFLAGS_JDKEXE@
+ JDKEXE_LIBS:=@JDKEXE_LIBS@
+ 
+ # LDFLAGS specific to C++ linking.
