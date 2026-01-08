@@ -23,7 +23,7 @@ VC_MATCH:=	${VC_MATCH}|^(XAUTH|XINIT)
 #
 .include "../../mk/bsd.prefs.mk"
 
-X11BASE:=	/nonexistent"
+X11BASE:=	/nonexistent
 
 show-varcache:
 	@{ ${MAKEVARS:@t@ \
@@ -31,7 +31,9 @@ show-varcache:
 		@} } | ${SORT} | uniq | ${EGREP} ${VC_MATCH:Q} \
 	| ${AWK} ' \
 	{ \
-		gsub(/${OSX_SDK_PATH:S,/,\\/,g}/, "$${OSX_SDK_PATH}"); \
+		if ("${OSX_SDK_PATH}") { \
+			gsub(/${OSX_SDK_PATH:S,/,\\/,g}/, "$${OSX_SDK_PATH}"); \
+		} \
 	} \
 	/^BUILTIN_PKG/ && ! $$2 { \
 		next; \
