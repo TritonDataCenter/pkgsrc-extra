@@ -1,0 +1,15 @@
+$NetBSD$
+
+Use the DragonFly locale backend on illumos.
+
+--- libstdc++-v3/configure.orig	2024-03-13 09:40:23.297760369 +0000
++++ libstdc++-v3/configure
+@@ -16511,7 +16511,7 @@ fi
+       vxworks*)
+ 	enable_clocale_flag=vxworks
+ 	;;
+-      dragonfly* | freebsd*)
++      dragonfly* | freebsd* | solaris2.11)
+ 	enable_clocale_flag=dragonfly
+ 	;;
+       openbsd*)

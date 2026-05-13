@@ -1,0 +1,12 @@
+$NetBSD$
+
+Fix install ordering issue.
+
+--- gcc/config/t-sol2.orig	2026-05-12 12:06:53.614290789 +0000
++++ gcc/config/t-sol2
+@@ -51,4 +51,5 @@ install: install-clearcap-map
+ 
+ # Ignore failures: file only exists if linker supports it.
+ install-clearcap-map:
++	$(mkinstalldirs) $(DESTDIR)$(libdir)
+ 	-$(INSTALL_DATA) clearcap.map $(DESTDIR)$(libdir)
