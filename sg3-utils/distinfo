@@ -1,0 +1,6 @@
+$NetBSD$
+
+BLAKE2s (sg3_utils-1.48.tgz) = 900f20527e3b2a8428a5b61dc2498cf621d8ea0363146c5c7b69f3a478255c8a
+SHA512 (sg3_utils-1.48.tgz) = 7869e74f289d046a4786e8967492446d4a863ae7f5a4fb3b08182f758e4b63a8e2e41e8f256b1a5cb7d1c0a14cacb9df4f70f12cf0d04492ca6adf4bd3d37dde
+Size (sg3_utils-1.48.tgz) = 2302254 bytes
+SHA1 (patch-lib_sg__pt__solaris.c) = e8a34686ae0b6902d2e37d0e004544aeb27f3f31
