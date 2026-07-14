@@ -1,0 +1,18 @@
+$NetBSD$
+
+BLAKE2s (boost_1_78_0.tar.bz2) = 6a7d1ccc98e060b46e16c204036336704153b6015ed842074a837f67c84b105a
+SHA512 (boost_1_78_0.tar.bz2) = 9c34a387a203b99aa773eb0c59f5abac7a99ba10e4623653e793c1d5b29b99b88e0e4e0d4e2e4ca5d497c42f2e46e23bab66417722433a457dc818d7670bcbbf
+Size (boost_1_78_0.tar.bz2) = 110675550 bytes
+BLAKE2s (foundationdb-7.3.78-ba5229f3c2a3ace8f11e4839f2e60373302301b7.tar.gz) = 05c54e2ad7027eaba4b6610dacdaef8eed2bce6531926e63452bacdbec7afe0f
+SHA512 (foundationdb-7.3.78-ba5229f3c2a3ace8f11e4839f2e60373302301b7.tar.gz) = b7f3de992e104269aa95a9dc7f932141fcb72da417c17bd1d6b063ac6449488c603c1407f341d68eb78209dbd90f7868e25a8c1b8cfca54121c929e8f1c2e675
+Size (foundationdb-7.3.78-ba5229f3c2a3ace8f11e4839f2e60373302301b7.tar.gz) = 13232820 bytes
+BLAKE2s (msgpack-3.3.0.tar.gz) = 0f14d7cdef077e1163f2d4f0a7f4d6830455e58530d2a6ac6941e96760010b48
+SHA512 (msgpack-3.3.0.tar.gz) = ad3e32edc8c6afd70282b3d4b493c2ffe74a697c41bd1f39030c5b4752cccefaa965bc049d4c2e63103a210bf714dc3bddd474691bc067d1475ae017593f55e6
+Size (msgpack-3.3.0.tar.gz) = 508001 bytes
+BLAKE2s (toml11-3.4.0.tar.gz) = 1de8c6ba7c7a776f6ee77fdb289f14fbe3520c8ab42aea04c62f9f9782b8dec0
+SHA512 (toml11-3.4.0.tar.gz) = a4050d9ddb7ff4aae4ef127818b29528b73dcc2dd16df716964dbb3d78e8bbc0bebaee16de8974809132bf89b7d217419b6ed96101b7cff59555cc0b303d8ff6
+Size (toml11-3.4.0.tar.gz) = 115097 bytes
+SHA1 (patch-CMakeLists.txt) = 792f50842d28420bce4debff79a6d16cd399596e
+SHA1 (patch-cmake_AddFdbTest.cmake) = af3ec26cdaf653545bedb2366f1ff73362c9a034
+SHA1 (patch-cmake_InstallLayout.cmake) = 0b2b795bfdc8a81034f2976eec224bb31d15f6e6
+SHA1 (patch-tests_CMakeLists.txt) = 07db1d3034977b0da7b2d9e13f88202023e01564

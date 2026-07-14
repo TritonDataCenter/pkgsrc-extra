@@ -1,0 +1,22 @@
+@comment $NetBSD$
+bin/dr_agent
+bin/fdbbackup
+bin/fdbcli
+bin/fdbdr
+bin/fdbrestore
+include/foundationdb/fdb.options
+include/foundationdb/fdb_c.h
+include/foundationdb/fdb_c_apiversion.g.h
+include/foundationdb/fdb_c_options.g.h
+include/foundationdb/fdb_c_types.h
+lib/cmake/FoundationDB-Client/FoundationDB-Client-release.cmake
+lib/cmake/FoundationDB-Client/FoundationDB-Client.cmake
+lib/cmake/FoundationDB-Client/FoundationDB-ClientConfig.cmake
+lib/cmake/FoundationDB-Client/FoundationDB-ClientConfigVersion.cmake
+lib/foundationdb/backup_agent/backup_agent
+lib/libfdb_c.so
+lib/pkgconfig/foundationdb-client.pc
+sbin/fdbmonitor
+sbin/fdbserver
+share/examples/foundationdb/fdb.cluster
+share/examples/foundationdb/foundationdb.conf

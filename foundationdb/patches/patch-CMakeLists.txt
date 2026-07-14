@@ -1,0 +1,15 @@
+$NetBSD$
+
+flowbench clones googlebenchmark with git at CMake configure time; it is
+never built or packaged, so drop it to keep the build offline.
+
+--- CMakeLists.txt.orig	2026-07-12 00:00:00.000000000 +0000
++++ CMakeLists.txt
+@@ -194,7 +194,6 @@
+ add_subdirectory(fdbbackup)
+ add_subdirectory(metacluster)
+ add_subdirectory(tests)
+-add_subdirectory(flowbench EXCLUDE_FROM_ALL)
+ if(WITH_PYTHON AND WITH_C_BINDING)
+   add_subdirectory(bindings)
+ endif()
