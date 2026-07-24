@@ -14,4 +14,4 @@ SHA1 (patch-make_Images.gmk) = e544466904fcc496f9854958759e27862523e201
 SHA1 (patch-make_autoconf_lib-bundled.m4) = 69f59a6fe6ae71984899845208c2b72f6acb01d8
 SHA1 (patch-make_autoconf_spec.gmk.in) = 4a825bd9a534db847930831732a83cbedd978665
 SHA1 (patch-make_common_modules_LauncherCommon.gmk) = 4f127e35797db3839a671f058ff6562283b4b797
-SHA1 (patch-src_hotspot_os_solaris_os__solaris.cpp) = d2b0fb1d9a59d59028d83bef8f4ffeb06e96d602
+SHA1 (patch-src_hotspot_os_solaris_os__solaris.cpp) = db7a725c74f9df8d429382dee7266b532da54da2

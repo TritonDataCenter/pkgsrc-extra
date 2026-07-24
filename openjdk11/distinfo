@@ -11,4 +11,4 @@ SHA1 (patch-make_autoconf_lib-bundled.m4) = d1fbc58b97b776066b9510d20cd965eac577
 SHA1 (patch-make_autoconf_spec.gmk.in) = 84347970b0a149eee6c2d61f34d75f0089d1fa5e
 SHA1 (patch-make_launcher_Launcher-jdk.pack.gmk) = 59f681c2fa544da970f45a7c72461e2c27c212ca
 SHA1 (patch-make_launcher_LauncherCommon.gmk) = 8bb7ad7a6d08370c4267e854fbee8694630ebb6b
-SHA1 (patch-src_hotspot_os_solaris_os__solaris.cpp) = 3b03703234c0c509ec999daf65511489baa521d7
+SHA1 (patch-src_hotspot_os_solaris_os__solaris.cpp) = d930faf18708e7dc2615011208fa79a22c82669a
