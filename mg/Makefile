@@ -3,7 +3,9 @@
 DISTNAME=	mg-20110905
 PKGREVISION=	5
 CATEGORIES=	editors
-MASTER_SITES=	https://homepage.boetes.org/software/mg/
+# As of 20260724 boetes.org was having issues serving anything
+MASTER_SITES=	https://distfiles.macports.org/mg/
+MASTER_SITES+=	https://homepage.boetes.org/software/mg/
 
 MAINTAINER=	abs@NetBSD.org
 HOMEPAGE=	https://homepage.boetes.org/software/mg/
