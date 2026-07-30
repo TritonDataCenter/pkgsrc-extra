@@ -65,7 +65,8 @@ CONFIGURE_ARGS+=	--with-zlib=system
 # proving difficult to track down.
 CONFIGURE_ARGS.SunOS+=	--disable-dtrace
 
-MAKE_JOBS_SAFE=		no # Set manually
+# The build process rejects make -j, we pass configure arguments above instead.
+MAKE_JOBS_METHOD=	manual
 
 BUILDLINK_PASSTHRU_RPATHDIRS+=	${JAVA_HOME}/lib
 

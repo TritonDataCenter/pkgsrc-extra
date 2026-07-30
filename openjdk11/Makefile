@@ -69,8 +69,8 @@ CONFIGURE_ARGS+=	--disable-hotspot-gtest
 # proving difficult to track down.
 CONFIGURE_ARGS.SunOS+=	--disable-dtrace
 
-# The build process rejects make -j, we pass --with-num-cores above instead.
-MAKE_JOBS_SAFE=		no
+# The build process rejects make -j, we pass configure arguments above instead.
+MAKE_JOBS_METHOD=	manual
 
 BUILDLINK_PASSTHRU_RPATHDIRS+=	${JAVA_HOME}/lib
 
