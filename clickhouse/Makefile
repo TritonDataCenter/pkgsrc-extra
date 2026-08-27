@@ -33,6 +33,8 @@ TOOL_DEPENDS+=		clang-[0-9]*:../../lang/clang
 CWRAPPERS_APPEND.cc+=	-Wno-everything
 CWRAPPERS_APPEND.cxx+=	-Wno-everything
 
+CFLAGS.SunOS+=		-D_XOPEN_SOURCE=700
+
 # StorageSystemLicenses.sh requires GNU find, grep, and xargs as the
 # plain tool names.
 TOOLS_PLATFORM.find=	${PREFIX}/bin/gfind
@@ -112,6 +114,19 @@ post-extract:
 # illumos dispatch that includes it.
 	${CP} ${FILESDIR}/llvm-locale-musl.h \
 		${WRKSRC}/contrib/llvm-project/libcxx/include/__locale_dir/locale_base_api/musl.h
+
+# XXX: Tell clang where to find GCC support libraries.  There are limited
+# places where clang looks for this file, all under LOCALBASE/bin, and this
+# one at least can be shared between clang, clang++, etc.
+# TODO: Move to the clang package, and update gcc-libs to provide all that
+# required, currently requires full gcc package
+CLANG_CFG=	${PREFIX}/bin/x86_64-pc-solaris2.11.cfg
+
+pre-configure: ${CLANG_CFG}
+${CLANG_CFG}:
+	${RUN} p=`${_GCC_PREFIX}bin/gcc -print-libgcc-file-name 2>/dev/null`; \
+	    d=`dirname $$p`; \
+	    ${ECHO} '--gcc-install-dir='$$d >${.TARGET}
 
 post-install:
 	${RM} -rf ${DESTDIR}${PREFIX}/cmake
