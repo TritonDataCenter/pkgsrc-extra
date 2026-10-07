@@ -5,7 +5,7 @@ BUILDLINK_TREE+=	gcc14-libs
 .if !defined(GCC14_LIBS_BUILDLINK3_MK)
 GCC14_LIBS_BUILDLINK3_MK:=
 
-BUILDLINK_API_DEPENDS.gcc14-libs+=	gcc14-libs>=14.2.0
+BUILDLINK_API_DEPENDS.gcc14-libs+=	gcc14-libs>=14.4.0
 BUILDLINK_PKGSRCDIR.gcc14-libs=		../../extra/gcc14-macos-libs
 BUILDLINK_DEPMETHOD.gcc14-libs?=	full
 

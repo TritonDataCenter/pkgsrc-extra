@@ -1,6 +1,6 @@
 # $NetBSD$
 
-PKGNAME=	gcc14-libs-14.2.0
+PKGNAME=	gcc14-libs-14.4.0
 CATEGORIES=	extra lang
 MASTER_SITES=	# empty
 DISTFILES=	# empty
@@ -38,12 +38,20 @@ do-install: ${LIBRARY_FILES}
 		< ${LIBRARY_FILES}
 	${RUN} for f in ${DESTDIR}${PREFIX}/${LIBPATH}/*.dylib; do	\
 		${TEST} -L $$f && continue;				\
-		install_name_tool -id `${ECHO} $$f | sed -e 's,${DESTDIR},,'` $$f; \
+		install_name_tool -id					\
+		    `${ECHO} $$f | sed -e 's,${DESTDIR},,'`		\
+		    $$f;						\
 	done
 	${RUN} install_name_tool -change				\
-		${PREFIX}/gcc14/lib/libquadmath.0.dylib			\
-		${PREFIX}/${LIBPATH}/libquadmath.0.dylib		\
-		${DESTDIR}${PREFIX}/${LIBPATH}/libgfortran.dylib
+	    ${PREFIX}/gcc14/lib/libquadmath.0.dylib			\
+	    ${PREFIX}/${LIBPATH}/libquadmath.0.dylib			\
+	    ${DESTDIR}${PREFIX}/${LIBPATH}/libgfortran.dylib
+	${RUN} for f in libasan.8.dylib libubsan.1.dylib; do		\
+		install_name_tool -change				\
+		    ${PREFIX}/gcc14/lib/libstdc++.6.dylib		\
+		    ${PREFIX}/${LIBPATH}/libstdc++.6.dylib		\
+		    ${DESTDIR}${PREFIX}/${LIBPATH}/$$f;			\
+	done
 
 PRINT_PLIST_AWK+=	{ gsub(/${MACHINE_GNU_PLATFORM}/, "$${MACHINE_GNU_PLATFORM}"); }
 

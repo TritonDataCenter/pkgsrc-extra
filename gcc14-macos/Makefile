@@ -4,11 +4,11 @@
 # Darwin/aarch64, and it is a large patchset.
 #
 
-DISTNAME=	gcc14-14.2.0
+DISTNAME=	gcc14-14.4.0
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_GITHUB:=iains/}
 GITHUB_PROJECT=	gcc-14-branch
-GITHUB_TAG=	5e090fc0112f86cbcaebb6065ad97ea599868505
+GITHUB_TAG=	1c613cea0091a4afea234ea3da6465370084b3ec
 
 MAINTAINER=	jperkin@smartos.org
 HOMEPAGE=	https://gcc.gnu.org/
