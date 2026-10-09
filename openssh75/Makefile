@@ -9,6 +9,7 @@ MAINTAINER=		pkgsrc-users@NetBSD.org
 HOMEPAGE=		http://www.openssh.com/
 COMMENT=		Legacy OpenSSH version for SSHv1 support
 
+FORCE_C_STD=		c99
 USE_GCC_RUNTIME=	yes
 USE_TOOLS+=		autoconf perl
 
