@@ -25,11 +25,13 @@ ${SPECS_PKGSRC}:
 		< ${BUILDLINK_PKGSRCDIR.gcc14-libs}/files/specs.pkgsrc \
 		> ${SPECS_PKGSRC}
 
+.if ${PKGSRC_COMPILER:Mgcc}
 _WRAP_EXTRA_ARGS.CC+=	-specs=${SPECS_PKGSRC}
 _WRAP_EXTRA_ARGS.CXX+=	-specs=${SPECS_PKGSRC}
-_WRAP_EXTRA_ARGS.FC+=	-specs=${SPECS_PKGSRC}
 CWRAPPERS_APPEND.cc+=	-specs=${SPECS_PKGSRC}
 CWRAPPERS_APPEND.cxx+=	-specs=${SPECS_PKGSRC}
+.endif
+_WRAP_EXTRA_ARGS.FC+=	-specs=${SPECS_PKGSRC}
 CWRAPPERS_APPEND.f77+=	-specs=${SPECS_PKGSRC}
 
 .include "../../mk/dlopen.buildlink3.mk"
