@@ -4,7 +4,7 @@
 DISTNAME=	cgipaf-1.3.3
 PKGNAME=	${DISTNAME:S/cgipaf/changepass/}
 CATEGORIES=	sysutils
-MASTER_SITES=	http://www.wagemakers.be/uploads/54/67/54679ae49d9c89c319e932a46da34745/
+MASTER_SITES=	https://download-mirror.savannah.gnu.org/releases/cgipaf/
 
 MAINTAINER=	jperkin@pkgsrc.org
 HOMEPAGE=	http://www.wagemakers.be/english/programs/cgipaf/changepass_manpage
