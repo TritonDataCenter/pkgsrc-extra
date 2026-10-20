@@ -1,12 +1,11 @@
 # $NetBSD$
-#
 
-DISTNAME=	zoneinit-1.6.9
+DISTNAME=	zoneinit-1.7.0
 CATEGORIES=	sysutils
-MASTER_SITES=	${MASTER_SITE_GITHUB:S,^,-,:=TritonDataCenter/}${DISTNAME:S|-|/archive/|}${EXTRACT_SUFX}
+MASTER_SITES=	${MASTER_SITE_GITHUB:=TritonDataCenter/}
 
 MAINTAINER=	jperkin@pkgsrc.org
-#HOMEPAGE=	#
+HOMEPAGE=	https://github.com/TritonDataCenter/zoneinit
 COMMENT=	SmartOS zone initialization toolchain
 LICENSE=	mit
 

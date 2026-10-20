@@ -1,5 +1,5 @@
 $NetBSD$
 
-BLAKE2s (zoneinit-1.6.9.tar.gz) = 9c51d7583f43a3f5450af597e331ed67ff2876a3ac1f1b61fdecb697d62974d2
-SHA512 (zoneinit-1.6.9.tar.gz) = 539f831bfd54422d42f0596edf0b88e2e65759f75297e25e6c777dbe6535b06e77f6d0da6631c8872314e1cb78f9186279cf151ffd8c04c070c722f1cd3a4a4b
-Size (zoneinit-1.6.9.tar.gz) = 9123 bytes
+BLAKE2s (zoneinit-1.7.0.tar.gz) = 2fba6440685c80d205be77869d672d5f0597fa86c00de3d3caf7afc9228c0b8b
+SHA512 (zoneinit-1.7.0.tar.gz) = 2305179024ae38e3a274dc61f431edfa4c5d175043c24eff9431bc9134f52caecf3e295b34069f67eac3c0ff2181e4d60e486f281d271faeffda14240eb1340d
+Size (zoneinit-1.7.0.tar.gz) = 9293 bytes
