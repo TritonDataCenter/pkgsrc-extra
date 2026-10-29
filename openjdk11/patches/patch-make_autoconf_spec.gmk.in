@@ -1,5 +1,7 @@
 $NetBSD$
 
+Fix RPATHs.
+
 --- make/autoconf/spec.gmk.in.orig	2025-11-18 15:47:37.847297784 +0000
 +++ make/autoconf/spec.gmk.in
 @@ -521,12 +521,12 @@ LD_JAOTC:=@LD_JAOTC@

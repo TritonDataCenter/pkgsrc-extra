@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=	il-jdk-11.0.29-ga
+DISTNAME=	il-jdk-11.0.32.1-ga
 PKGNAME=	${DISTNAME:C/il-jdk/openjdk11/:C/-ga//}
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_GITHUB:=illumos/}
@@ -93,7 +93,10 @@ SITES.${BOOTSTRAP_JDK}=	https://us-central.manta.mnx.io/pkgsrc/public/pkg-bootst
 DISTFILES:=		${DEFAULT_DISTFILES} ${BOOTSTRAP_JDK}
 .endif
 
+# Swap these over to test updates by building against what we just built.
 BOOTJDK_DIR=		${WRKDIR}/openjdk11
+#BOOTJDK_DIR=		${PREFIX}/java/openjdk11
+
 CACERTS_STORE=		${WRKDIR}/cacerts.keystore
 
 CONFIGURE_ARGS+=	--with-boot-jdk=${BOOTJDK_DIR}
