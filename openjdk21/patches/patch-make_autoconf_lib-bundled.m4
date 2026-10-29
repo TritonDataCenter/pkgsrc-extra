@@ -2,10 +2,10 @@ $NetBSD$
 
 Ensure the correct zlib can be found.
 
---- make/autoconf/lib-bundled.m4.orig	2022-12-16 15:01:05.000000000 +0000
+--- make/autoconf/lib-bundled.m4.orig	2026-10-29 17:48:31.000000000 +0000
 +++ make/autoconf/lib-bundled.m4
-@@ -221,7 +221,7 @@ AC_DEFUN_ONCE([LIB_SETUP_ZLIB],
-         LIBZ_CFLAGS="$LIBZ_CFLAGS -DHAVE_UNISTD_H"
+@@ -223,7 +223,7 @@ AC_DEFUN_ONCE([LIB_SETUP_ZLIB],
+         LIBZ_CFLAGS="$LIBZ_CFLAGS -DHAVE_UNISTD_H=1 -DHAVE_STDARG_H=1"
      fi
    else
 -    LIBZ_LIBS="-lz"

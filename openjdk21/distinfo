@@ -1,8 +1,8 @@
 $NetBSD$
 
-BLAKE2s (il-jdk-21.0.9-ga.tar.gz) = 2acf2b2ec4718c32127b05fd30bf4616ebef55a2500565a90295efd0a49b67bd
-SHA512 (il-jdk-21.0.9-ga.tar.gz) = 3c22af28e0ee29333a206ac0d044752824d9a066a28def97710703ba4af9308a47ccb0a2cf8a52ab1bd091b8ce514a7542b577adf7d40f349e122c337262d074
-Size (il-jdk-21.0.9-ga.tar.gz) = 113954744 bytes
+BLAKE2s (il-jdk-21.0.13-ga.tar.gz) = d0b20107f3a17104a2a0bea9b39679e38ead6934b274f01735c3cb1ba53635d2
+SHA512 (il-jdk-21.0.13-ga.tar.gz) = ef554c6cf51d227008206f4a5067bb3e787512b6c2a0129665cd0b6112fc72acd2dcb3b7eb968dce7c8d5a8aa2c3f7906682434a6607c93c549d065912f78d10
+Size (il-jdk-21.0.13-ga.tar.gz) = 114451935 bytes
 BLAKE2s (illumos-zgc.patch) = e7a0f52b0fda1453249fd762ca0e7ae186c8b03cfd38e620b14a62c54fd6b256
 SHA512 (illumos-zgc.patch) = 1abdd94b8ee85ad6c247d5eb6e37796e212b591e8b51d0ae4e93774462c1766c1c874b02e12276c77af466ae9922b102766b9dba27e12c5f8086a0708a34597d
 Size (illumos-zgc.patch) = 21726 bytes
@@ -11,7 +11,7 @@ SHA512 (openjdk21-21.0.3-x86_64-unknown-illumos.tar.gz) = 6278a6aca25f02c96a8c24
 Size (openjdk21-21.0.3-x86_64-unknown-illumos.tar.gz) = 223974648 bytes
 SHA1 (patch-make_GenerateLinkOptData.gmk) = 321b8a97a797d361a4c949d962740adbd267eadd
 SHA1 (patch-make_Images.gmk) = e544466904fcc496f9854958759e27862523e201
-SHA1 (patch-make_autoconf_lib-bundled.m4) = 69f59a6fe6ae71984899845208c2b72f6acb01d8
+SHA1 (patch-make_autoconf_lib-bundled.m4) = 532e14d3fb93b8848723af8d313f09dac802913e
 SHA1 (patch-make_autoconf_spec.gmk.in) = 4a825bd9a534db847930831732a83cbedd978665
 SHA1 (patch-make_common_modules_LauncherCommon.gmk) = 4f127e35797db3839a671f058ff6562283b4b797
 SHA1 (patch-src_hotspot_os_solaris_os__solaris.cpp) = db7a725c74f9df8d429382dee7266b532da54da2
