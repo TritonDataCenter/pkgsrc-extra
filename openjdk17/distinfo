@@ -1,14 +1,14 @@
 $NetBSD$
 
-BLAKE2s (il-jdk-17.0.17-ga.tar.gz) = 415fcbefe6e022f17f3bc14e80a853a2a115eb6aeb7cfb44fad911e868e6fddb
-SHA512 (il-jdk-17.0.17-ga.tar.gz) = 3b53b4ed15e5e1efa2eb2b4521a99b13800ef2fdda2a4d9df20e34ec7da3e10d71e2a4eb0881adc7eeec53daca20110a3691d3616c6a8b0364429e670da5c2cc
-Size (il-jdk-17.0.17-ga.tar.gz) = 108159403 bytes
+BLAKE2s (il-jdk-17.0.21-ga.tar.gz) = 9ecde98649fa02d51843387ec2433a47616f50c378c4399da1a97f043924384e
+SHA512 (il-jdk-17.0.21-ga.tar.gz) = a61f021fc039c86962d9062a272f57b630d153b5d9b421f2828288fc201503c6c08cdbf07038ab6e48a08e0184c9b71e2d511f6ea1d318025e70225f8db51803
+Size (il-jdk-17.0.21-ga.tar.gz) = 109148361 bytes
 BLAKE2s (openjdk17-17.0.9-x86_64-unknown-illumos.tar.gz) = 26e97f11e63c85259b72207d6dd6391d687d7ff5772fb7238f6d19aa5faa46dd
 SHA512 (openjdk17-17.0.9-x86_64-unknown-illumos.tar.gz) = c035f1e57c0e590b9d58c3c81ee3c323495b951a41e1c237a97bd73a49e9c56ef35d789259daba7ed642477a2ceea7cb4b416d030bc29a1dd9304c2418ce977f
 Size (openjdk17-17.0.9-x86_64-unknown-illumos.tar.gz) = 208922108 bytes
 SHA1 (patch-make_GenerateLinkOptData.gmk) = 6071697e78cde19671a541d1c849620dd940c2b2
 SHA1 (patch-make_Images.gmk) = d0edcdb3b36e3a32c2c0945ce222209675b8c7fe
-SHA1 (patch-make_autoconf_lib-bundled.m4) = bcedbbaf3c717ebb0dd4a42b1777a3f09a349f98
+SHA1 (patch-make_autoconf_lib-bundled.m4) = 628712da718c6bc6a881c8e305861f8a3ad89cd8
 SHA1 (patch-make_autoconf_spec.gmk.in) = 376676c63d65a8e32cadb5005f24e31334b65b10
 SHA1 (patch-make_common_modules_LauncherCommon.gmk) = c596e622b680ab77e10a974ac3c84fbb87678afd
 SHA1 (patch-src_hotspot_os_solaris_os__solaris.cpp) = db7a725c74f9df8d429382dee7266b532da54da2
