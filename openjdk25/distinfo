@@ -1,0 +1,18 @@
+$NetBSD$
+
+BLAKE2s (openjdk25/il-jdk-25.0.5.0.3-ga.tar.gz) = 60431f5dd4d29dc72b2fd448ddf4014cbb892a2357548aa36f8aecfe5592f68a
+SHA512 (openjdk25/il-jdk-25.0.5.0.3-ga.tar.gz) = bf03ce444d1ad3fe86a0c1d9e5bddb8a13e66b1e56bec1d89a1bca06b0029c78b34fa371d82793fdc79bd1a792bfeede543ad6cf7c2999018d7b10799ca02b4d
+Size (openjdk25/il-jdk-25.0.5.0.3-ga.tar.gz) = 119899552 bytes
+BLAKE2s (openjdk25/illumos-zgc.patch) = f3b6c584f6bfd241776d88a8f217383b7e322ecb253ba41173f1fc2d67f27bcd
+SHA512 (openjdk25/illumos-zgc.patch) = deebc7be5866c8fa26afa024c35f7e85c39e117f7529767502c2c4ec3ad44d9a648f25e3966c363f3f67b6f14f99b37d2643c2669f3017110e6ca1dc296c77f3
+Size (openjdk25/illumos-zgc.patch) = 11167 bytes
+BLAKE2s (openjdk25/openjdk25-25.0.5.0.3-x86_64-unknown-illumos.tar.gz) = a039ded66379a9b8f99afa8b12ce60a5d72cb3211acbbe3b9612cbdcfc106e22
+SHA512 (openjdk25/openjdk25-25.0.5.0.3-x86_64-unknown-illumos.tar.gz) = b18ebdb442f8366d93c772bf2542f1cf2e48dc6c44a5ff310fa9ecf8d22857cd7ea8d1ca6e6a51035d488861b1669400bcc57e6e69db846afe15d758ec68a132
+Size (openjdk25/openjdk25-25.0.5.0.3-x86_64-unknown-illumos.tar.gz) = 241032652 bytes
+SHA1 (patch-make_GenerateLinkOptData.gmk) = 0c24edf386ab5d313d750c4c4ea805a1f5b164d8
+SHA1 (patch-make_Images.gmk) = cf76c371363f907956666772e6c146aeb86b3fbb
+SHA1 (patch-make_autoconf_lib-bundled.m4) = 1c5345a6fbbb92625e72fd7d07adb7caed19fe2b
+SHA1 (patch-make_autoconf_spec.gmk.template) = fa9a821bbe13c087f1bd5ce59c66cf8f5d49e74e
+SHA1 (patch-src_hotspot_os_solaris_osThread__solaris.hpp) = 197673b974485d0fdc435f7e685f95f80d870379
+SHA1 (patch-src_hotspot_os_solaris_os__solaris.cpp) = cf0c5f7fb84be5ecb164d56340bf69b73a0b0fd7
+SHA1 (patch-src_hotspot_share_gc_shared_c2_barrierSetC2.cpp) = 217ccba3977ccdd77b5f3b6e55d669106ce1978f

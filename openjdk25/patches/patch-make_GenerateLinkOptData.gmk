@@ -1,0 +1,39 @@
+$NetBSD$
+
+Ensure interim libraries can be found.  These patches are only appropriate for
+pkgsrc, other builds aren't as strict about removing $ORIGIN as us.
+
+--- make/GenerateLinkOptData.gmk.orig	2026-10-30 12:27:06.000000000 +0000
++++ make/GenerateLinkOptData.gmk
+@@ -75,19 +75,19 @@ $(CLASSLIST_FILE): $(INTERIM_IMAGE_DIR)/
+ 	$(call LogInfo, Generating $(patsubst $(OUTPUTDIR)/%, %, $@))
+ 	$(call LogInfo, Generating $(patsubst $(OUTPUTDIR)/%, %, $(JLI_TRACE_FILE)))
+ 	LD_LIBRARY_PATH=$(INTERIM_IMAGE_DIR)/lib:$(INTERIM_IMAGE_DIR)/lib/jli \
+-	$(FIXPATH) $(INTERIM_IMAGE_DIR)/bin/java -XX:DumpLoadedClassList=$@.raw \
++	$(FIXPATH) LD_LIBRARY_PATH=$(INTERIM_IMAGE_DIR)/lib $(INTERIM_IMAGE_DIR)/bin/java -XX:DumpLoadedClassList=$@.raw \
+ 	    $(CLASSLIST_FILE_VM_OPTS) \
+ 	    -Xlog:aot=off \
+ 	    -Xlog:cds=off \
+ 	    -cp $(SUPPORT_OUTPUTDIR)/classlist.jar \
+ 	    build.tools.classlist.HelloClasslist $(LOG_DEBUG)
+ 	$(GREP) -v HelloClasslist $@.raw > $@.interim
+-	$(FIXPATH) $(INTERIM_IMAGE_DIR)/bin/java -Xshare:dump \
++	$(FIXPATH) LD_LIBRARY_PATH=$(INTERIM_IMAGE_DIR)/lib $(INTERIM_IMAGE_DIR)/bin/java -Xshare:dump \
+ 	    -Xlog:aot=off \
+ 	    -Xlog:cds=off \
+ 	    -XX:SharedClassListFile=$@.interim -XX:SharedArchiveFile=$@.jsa \
+ 	    -Xmx128M -Xms128M $(LOG_INFO)
+-	$(FIXPATH) $(INTERIM_IMAGE_DIR)/bin/java -XX:DumpLoadedClassList=$@.raw.2 \
++	$(FIXPATH) LD_LIBRARY_PATH=$(INTERIM_IMAGE_DIR)/lib $(INTERIM_IMAGE_DIR)/bin/java -XX:DumpLoadedClassList=$@.raw.2 \
+ 	    -XX:SharedClassListFile=$@.interim -XX:SharedArchiveFile=$@.jsa \
+ 	    -Djava.lang.invoke.MethodHandle.TRACE_RESOLVE=true \
+ 	    $(CLASSLIST_FILE_VM_OPTS) \
+@@ -106,7 +106,7 @@ $(CLASSLIST_FILE): $(INTERIM_IMAGE_DIR)/
+ 	    )
+ 	$(GREP) -v HelloClasslist $@.raw.2 > $@.raw.3
+ 	$(GREP) -v @cp $@.raw.3 > $@.raw.4
+-	$(FIXPATH) $(INTERIM_IMAGE_DIR)/bin/java \
++	$(FIXPATH) LD_LIBRARY_PATH=$(INTERIM_IMAGE_DIR)/lib $(INTERIM_IMAGE_DIR)/bin/java \
+ 	    -Xlog:aot=off \
+ 	    -Xlog:cds=off \
+ 	    -cp $(SUPPORT_OUTPUTDIR)/classlist.jar \
