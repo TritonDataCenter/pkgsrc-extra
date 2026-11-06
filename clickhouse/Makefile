@@ -51,12 +51,15 @@ CHECK_PORTABILITY_SKIP+=	contrib/*/testTimezones.sh
 SSLDIR=		${PKG_SYSCONFBASE}/openssl
 SSLCERTS=	${SSLDIR}/certs
 
+# Default to a minimal build, only enabling features we specifically require.
 CMAKE_CONFIGURE_ARGS+=	-DCMAKE_BUILD_TYPE=Release
-CMAKE_CONFIGURE_ARGS+=	-DOPENSSLDIR=${SSLDIR}
 CMAKE_CONFIGURE_ARGS+=	-DCOMPILER_CACHE=disabled
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_LIBRARIES=OFF
+CMAKE_CONFIGURE_ARGS+=	-DENABLE_RAPIDJSON=ON
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_RUST=OFF
+CMAKE_CONFIGURE_ARGS+=	-DENABLE_SIMDJSON=ON
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_TESTS=OFF
+CMAKE_CONFIGURE_ARGS+=	-DOPENSSLDIR=${SSLDIR}
 CMAKE_CONFIGURE_ARGS+=	-DPARALLEL_LINK_JOBS=1
 
 CLICKHOUSE_USER?=		clickhouse
@@ -120,7 +123,7 @@ post-extract:
 # one at least can be shared between clang, clang++, etc.
 # TODO: Move to the clang package, and update gcc-libs to provide all that
 # required, currently requires full gcc package
-CLANG_CFG=	${PREFIX}/bin/x86_64-pc-solaris2.11.cfg
+CLANG_CFG=	${LOCALBASE}/bin/x86_64-pc-solaris2.11.cfg
 
 pre-configure: ${CLANG_CFG}
 ${CLANG_CFG}:
