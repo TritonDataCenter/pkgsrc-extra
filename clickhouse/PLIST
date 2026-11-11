@@ -13,7 +13,12 @@ bin/clickhouse-docker-init
 bin/clickhouse-extract-from-config
 bin/clickhouse-format
 bin/clickhouse-git-import
+bin/clickhouse-keeper
+bin/clickhouse-keeper-bench
 bin/clickhouse-keeper-client
+bin/clickhouse-keeper-converter
+bin/clickhouse-keeper-data-dumper
+bin/clickhouse-keeper-utils
 bin/clickhouse-local
 bin/clickhouse-obfuscator
 bin/clickhouse-oom-canary
@@ -28,5 +33,6 @@ share/bash-completion/completions/clickhouse-bootstrap
 share/bash-completion/completions/clickhouse-client
 share/bash-completion/completions/clickhouse-local
 share/examples/clickhouse/clickhouse-client/config.xml
+share/examples/clickhouse/clickhouse-keeper/keeper_config.xml
 share/examples/clickhouse/clickhouse-server/config.xml
 share/examples/clickhouse/clickhouse-server/users.xml
