@@ -1,10 +1,10 @@
 # $NetBSD$
 
-DISTNAME=	clickhouse-26.7.1.1
+DISTNAME=	clickhouse-26.8.34.13
 CATEGORIES=	extra
-MASTER_SITES=	${MASTER_SITE_GITHUB:=jperkin/}
+MASTER_SITES=	${MASTER_SITE_GITHUB:=knoguchi/}
 GITHUB_PROJECT=	ClickHouse
-GITHUB_TAG=	4698a33fd1b9c031198b77b13aa9e0b27e03dd2b
+GITHUB_TAG=	b7d888833f5d77eee5269391ee2e85ea9ba1521b
 
 # One distfile per submodule, from its original repository.
 DISTFILES=	${DEFAULT_DISTFILES}
@@ -54,6 +54,7 @@ SSLCERTS=	${SSLDIR}/certs
 # Default to a minimal build, only enabling features we specifically require.
 CMAKE_CONFIGURE_ARGS+=	-DCMAKE_BUILD_TYPE=Release
 CMAKE_CONFIGURE_ARGS+=	-DCOMPILER_CACHE=disabled
+CMAKE_CONFIGURE_ARGS+=	-DCOMPRESS_DEBUG_SECTIONS=OFF
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_LIBRARIES=OFF
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_NURAFT=ON
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_RAPIDJSON=ON
@@ -118,6 +119,14 @@ post-extract:
 # illumos dispatch that includes it.
 	${CP} ${FILESDIR}/llvm-locale-musl.h \
 		${WRKSRC}/contrib/llvm-project/libcxx/include/__locale_dir/locale_base_api/musl.h
+
+# clang needs GCC's runtime (crtbegin.o, libgcc, libgcc_s, libssp) to link.
+# Pass its location to every clang invocation through the compiler
+# wrappers, rather than writing a cfg file into LOCALBASE/bin.
+TOOL_DEPENDS+=		gcc13-[0-9]*:../../lang/gcc13
+_CH_GCC_DIR!=		/usr/bin/dirname `${LOCALBASE}/gcc13/bin/gcc -print-libgcc-file-name`
+CWRAPPERS_APPEND.cc+=	--gcc-install-dir=${_CH_GCC_DIR}
+CWRAPPERS_APPEND.cxx+=	--gcc-install-dir=${_CH_GCC_DIR}
 
 post-install:
 	${RM} -rf ${DESTDIR}${PREFIX}/cmake
