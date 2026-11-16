@@ -22,6 +22,7 @@ bin/clickhouse-keeper-utils
 bin/clickhouse-local
 bin/clickhouse-obfuscator
 bin/clickhouse-oom-canary
+bin/clickhouse-packed-io
 bin/clickhouse-server
 bin/clickhouse-static-files-disk-uploader
 bin/clickhouse-su
