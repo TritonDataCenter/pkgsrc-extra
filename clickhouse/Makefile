@@ -1,6 +1,7 @@
 # $NetBSD$
 
 DISTNAME=	clickhouse-26.7.1.1
+PKGREVISION=	1
 CATEGORIES=	extra
 MASTER_SITES=	${MASTER_SITE_GITHUB:=jperkin/}
 GITHUB_PROJECT=	ClickHouse
