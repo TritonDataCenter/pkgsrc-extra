@@ -4,7 +4,7 @@ illumos returns ENOTCONN for shutdown(SHUT_RD) on a listening socket, as
 Darwin does. The uncaught exception aborts clickhouse-keeper on SIGTERM and
 cuts short the clickhouse-server shutdown handler.
 
---- src/Server/TCPServer.h.orig
+--- src/Server/TCPServer.h
 +++ src/Server/TCPServer.h
 @@ -44,8 +44,8 @@
          if (!is_open)
