@@ -132,5 +132,13 @@ post-install:
 	# Empty debug-info placeholder installed for upstream's nfpm packaging.
 	${RM} -rf ${DESTDIR}${PREFIX}/lib/debug
 
+# Configure without the inherited CFLAGS/CXXFLAGS/LDFLAGS, which PreLoad.cmake
+# rejects. pkgsrc wrappers supply the flags.
+do-configure:
+	${RUN} cd ${WRKSRC}/${CONFIGURE_DIR} && \
+		env -u CFLAGS -u CXXFLAGS -u LDFLAGS ${SETENV} ${CONFIGURE_ENV} cmake \
+		--install-prefix ${PREFIX} -B ${CMAKE_BUILD_DIR} \
+		-G ${_CMAKE_BUILD_SYSTEM:Q} ${CMAKE_CONFIGURE_ARGS}
+
 .include "../../devel/cmake/build.mk"
 .include "../../mk/bsd.pkg.mk"
