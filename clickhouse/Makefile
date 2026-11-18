@@ -16,7 +16,7 @@ HOMEPAGE=	https://clickhouse.com/
 COMMENT=	Real-time analytics database management system
 LICENSE=	apache-2.0
 
-WRKSRC=		${WRKDIR}/${GITHUB_PROJECT}-${GITHUB_TAG}
+WRKSRC=		${WRKDIR}/${GITHUB_PROJECT}-${GITHUB_TAG:S/^v//}
 
 USE_LANGUAGES=	c c++
 USE_TOOLS+=	bash cmake
