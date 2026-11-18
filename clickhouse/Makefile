@@ -34,7 +34,8 @@ TOOL_DEPENDS+=		clang-[0-9]*:../../lang/clang
 CWRAPPERS_APPEND.cc+=	-Wno-everything
 CWRAPPERS_APPEND.cxx+=	-Wno-everything
 
-CFLAGS.SunOS+=		-D_XOPEN_SOURCE=700
+CWRAPPERS_APPEND.cc+=	-D_XOPEN_SOURCE=700
+CWRAPPERS_APPEND.cxx+=	-D_XOPEN_SOURCE=700
 
 # StorageSystemLicenses.sh requires GNU find, grep, and xargs as the
 # plain tool names.
@@ -136,7 +137,7 @@ post-install:
 # rejects. pkgsrc wrappers supply the flags.
 do-configure:
 	${RUN} cd ${WRKSRC}/${CONFIGURE_DIR} && \
-		unset CFLAGS CXXFLAGS LDFLAGS && ${SETENV} ${CONFIGURE_ENV} cmake \
+		unset CFLAGS CXXFLAGS LDFLAGS && ${SETENV} ${CONFIGURE_ENV:NCFLAGS=*:NCXXFLAGS=*:NLDFLAGS=*} cmake \
 		--install-prefix ${PREFIX} -B ${CMAKE_BUILD_DIR} \
 		-G ${_CMAKE_BUILD_SYSTEM:Q} ${CMAKE_CONFIGURE_ARGS}
 
