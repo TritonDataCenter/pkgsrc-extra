@@ -38,6 +38,12 @@ CWRAPPERS_APPEND.cxx+=	-Wno-everything
 
 CWRAPPERS_APPEND.cc+=	-D_XOPEN_SOURCE=700
 CWRAPPERS_APPEND.cxx+=	-D_XOPEN_SOURCE=700
+# clang on illumos links against GCC's runtime (crtbegin.o, libgcc, libssp); point it at gcc13's runtime dir
+# through the compiler wrappers (same approach as the 26.7 package, c0402dd).
+TOOL_DEPENDS+=		gcc13-[0-9]*:../../lang/gcc13
+_CH_GCC_DIR!=		/usr/bin/dirname `${LOCALBASE}/gcc13/bin/gcc -print-libgcc-file-name`
+CWRAPPERS_APPEND.cc+=	--gcc-install-dir=${_CH_GCC_DIR}
+CWRAPPERS_APPEND.cxx+=	--gcc-install-dir=${_CH_GCC_DIR}
 
 # StorageSystemLicenses.sh requires GNU find, grep, and xargs as the
 # plain tool names.
