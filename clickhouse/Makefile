@@ -136,7 +136,7 @@ post-install:
 # rejects. pkgsrc wrappers supply the flags.
 do-configure:
 	${RUN} cd ${WRKSRC}/${CONFIGURE_DIR} && \
-		env -u CFLAGS -u CXXFLAGS -u LDFLAGS ${SETENV} ${CONFIGURE_ENV} cmake \
+		unset CFLAGS CXXFLAGS LDFLAGS && ${SETENV} ${CONFIGURE_ENV} cmake \
 		--install-prefix ${PREFIX} -B ${CMAKE_BUILD_DIR} \
 		-G ${_CMAKE_BUILD_SYSTEM:Q} ${CMAKE_CONFIGURE_ARGS}
 
