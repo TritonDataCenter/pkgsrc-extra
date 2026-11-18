@@ -1,11 +1,11 @@
 # $NetBSD$
 
-DISTNAME=	clickhouse-26.7.1.1
+DISTNAME=	clickhouse-26.8.39.19
 PKGREVISION=	1
 CATEGORIES=	extra
-MASTER_SITES=	${MASTER_SITE_GITHUB:=jperkin/}
+MASTER_SITES=	${MASTER_SITE_GITHUB:=ClickHouse/}
 GITHUB_PROJECT=	ClickHouse
-GITHUB_TAG=	4698a33fd1b9c031198b77b13aa9e0b27e03dd2b
+GITHUB_TAG=	v26.8.39.19-lts
 
 # One distfile per submodule, from its original repository.
 DISTFILES=	${DEFAULT_DISTFILES}
