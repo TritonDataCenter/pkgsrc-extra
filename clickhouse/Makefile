@@ -27,6 +27,8 @@ CMAKE_GENERATOR=	ninja
 
 # Must be DEPENDS rather than bl3 to avoid llvm interference.
 PKGSRC_COMPILER=	clang
+# pkgsrc lang/clang is not built on SmartOS builders; use the pkgin-installed clang-22 in /opt/local.
+CLANGBASE=	/opt/local
 TOOL_DEPENDS+=		clang-[0-9]*:../../lang/clang
 
 # The wrappers discard -w, which the build relies on to suppress
