@@ -425,4 +425,4 @@ SHA512 (zxc-e568d1967309fd5d160f45f2fdabcbff6ab3f058.tar.gz) = f99adfec0b7d3415e
 Size (zxc-e568d1967309fd5d160f45f2fdabcbff6ab3f058.tar.gz) = 829546 bytes
 SHA1 (patch-CMakeLists.txt) = cfab930975d7680730c0e2760a4205232334eeb1
 SHA1 (patch-src_Common_StackTrace.h) = 5dbcb4aafb9598c785bbdfef38a96d33dfcc3744
-SHA1 (patch-src_Server_TCPServer.h) = 1cc80756d656626d57558001edc81001a4ae1a6c
+SHA1 (patch-src_Server_TCPServer.h) = 29cd24d424810d210d4fb1990f316a6dead06363
