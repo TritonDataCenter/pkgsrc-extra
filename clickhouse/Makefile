@@ -140,10 +140,10 @@ do-configure:
 		--install-prefix ${PREFIX} -B ${CMAKE_BUILD_DIR} \
 		-G ${_CMAKE_BUILD_SYSTEM:Q} ${CMAKE_CONFIGURE_ARGS}
 
-# Upstream master passes -z relro/separate-code/noexecstack/keep-text-section-prefix
-# unconditionally, which illumos ld rejects. Fail here, before a bump builds.
+# Upstream master passes -z keep-text-section-prefix without a SunOS guard, which illumos ld rejects.
+# relro, separate-code and noexecstack are guarded by LINKER_IS_SOLARIS upstream. Fail here before a bump builds.
 pre-configure:
-	@if grep -q 'z,relro\|z,separate-code\|z,noexecstack\|keep-text-section-prefix' ${WRKSRC}/CMakeLists.txt; then \
+	@if grep -q 'keep-text-section-prefix' ${WRKSRC}/CMakeLists.txt; then \
 		${ECHO} "CMakeLists.txt has -z linker flags unsupported by illumos ld; add a SunOS guard patch."; \
 		exit 1; \
 	fi
