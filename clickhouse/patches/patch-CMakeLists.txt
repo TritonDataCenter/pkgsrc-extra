@@ -1,11 +1,9 @@
 $NetBSD$
 
 Install example configuration files to the pkgsrc examples directory.
-
 --- CMakeLists.txt.orig
 +++ CMakeLists.txt
-@@ -561,8 +561,8 @@
- # when installing to /usr - place configs to /etc but for /usr/local place to /usr/local/etc
+@@ -647,7 +647,7 @@
  if (CMAKE_INSTALL_PREFIX STREQUAL "/usr")
      set (CLICKHOUSE_ETC_DIR "/etc")
  else ()

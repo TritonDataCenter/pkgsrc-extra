@@ -20,8 +20,8 @@ Date:   Mon Aug 31 15:51:58 2026 +0000
 
 diff --git a/src/Common/StackTrace.h b/src/Common/StackTrace.h
 index a12733b0275..01a07ac7af6 100644
---- a/src/Common/StackTrace.h
-+++ b/src/Common/StackTrace.h
+--- src/Common/StackTrace.h
++++ src/Common/StackTrace.h
 @@ -29,6 +29,14 @@
  #   define _XOPEN_SOURCE 700
  #endif
