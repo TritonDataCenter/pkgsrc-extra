@@ -54,6 +54,9 @@ SSLCERTS=	${SSLDIR}/certs
 
 # Default to a minimal build, only enabling features we specifically require.
 CMAKE_CONFIGURE_ARGS+=	-DCMAKE_BUILD_TYPE=Release
+# PreLoad.cmake rejects non-empty CFLAGS/CXXFLAGS/LDFLAGS in the environment;
+# pkgsrc wrappers supply the flags instead.
+CONFIGURE_ENV+=		CFLAGS= CXXFLAGS= LDFLAGS=
 CMAKE_CONFIGURE_ARGS+=	-DCOMPILER_CACHE=disabled
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_LIBRARIES=OFF
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_NURAFT=ON
