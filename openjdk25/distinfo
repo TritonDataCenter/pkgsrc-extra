@@ -13,6 +13,7 @@ SHA1 (patch-make_GenerateLinkOptData.gmk) = 0c24edf386ab5d313d750c4c4ea805a1f5b1
 SHA1 (patch-make_Images.gmk) = cf76c371363f907956666772e6c146aeb86b3fbb
 SHA1 (patch-make_autoconf_lib-bundled.m4) = 1c5345a6fbbb92625e72fd7d07adb7caed19fe2b
 SHA1 (patch-make_autoconf_spec.gmk.template) = fa9a821bbe13c087f1bd5ce59c66cf8f5d49e74e
+SHA1 (patch-src_hotspot_cpu_x86_stubGenerator__x86__64.cpp) = 9327ee44952d51624c19a0835eebe0ae9c68f3ce
 SHA1 (patch-src_hotspot_os_solaris_osThread__solaris.hpp) = 197673b974485d0fdc435f7e685f95f80d870379
 SHA1 (patch-src_hotspot_os_solaris_os__solaris.cpp) = cf0c5f7fb84be5ecb164d56340bf69b73a0b0fd7
 SHA1 (patch-src_hotspot_share_gc_shared_c2_barrierSetC2.cpp) = 217ccba3977ccdd77b5f3b6e55d669106ce1978f

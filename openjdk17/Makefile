@@ -2,6 +2,7 @@
 
 DISTNAME=	il-jdk-17.0.21-ga
 PKGNAME=	${DISTNAME:S/il-jdk/openjdk17/:S/-ga//}
+PKGREVISION=	1
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_GITHUB:=illumos/}
 GITHUB_PROJECT=	jdk
