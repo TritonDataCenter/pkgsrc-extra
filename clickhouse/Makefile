@@ -1,11 +1,11 @@
 # $NetBSD$
 
-DISTNAME=	clickhouse-26.7.1.1
+DISTNAME=	clickhouse-26.8.39.19
 PKGREVISION=	1
 CATEGORIES=	extra
-MASTER_SITES=	${MASTER_SITE_GITHUB:=jperkin/}
+MASTER_SITES=	${MASTER_SITE_GITHUB:=ClickHouse/}
 GITHUB_PROJECT=	ClickHouse
-GITHUB_TAG=	4698a33fd1b9c031198b77b13aa9e0b27e03dd2b
+GITHUB_TAG=	v26.8.39.19-lts
 
 # One distfile per submodule, from its original repository.
 DISTFILES=	${DEFAULT_DISTFILES}
@@ -16,7 +16,7 @@ HOMEPAGE=	https://clickhouse.com/
 COMMENT=	Real-time analytics database management system
 LICENSE=	apache-2.0
 
-WRKSRC=		${WRKDIR}/${GITHUB_PROJECT}-${GITHUB_TAG}
+WRKSRC=		${WRKDIR}/${GITHUB_PROJECT}-${GITHUB_TAG:S/^v//}
 
 USE_LANGUAGES=	c c++
 USE_TOOLS+=	bash cmake
@@ -27,6 +27,8 @@ CMAKE_GENERATOR=	ninja
 
 # Must be DEPENDS rather than bl3 to avoid llvm interference.
 PKGSRC_COMPILER=	clang
+# pkgsrc lang/clang is not built on SmartOS builders; use the pkgin-installed clang-22 in /opt/local.
+CLANGBASE=	/opt/local
 TOOL_DEPENDS+=		clang-[0-9]*:../../lang/clang
 
 # The wrappers discard -w, which the build relies on to suppress
@@ -34,7 +36,14 @@ TOOL_DEPENDS+=		clang-[0-9]*:../../lang/clang
 CWRAPPERS_APPEND.cc+=	-Wno-everything
 CWRAPPERS_APPEND.cxx+=	-Wno-everything
 
-CFLAGS.SunOS+=		-D_XOPEN_SOURCE=700
+CWRAPPERS_APPEND.cc+=	-D_XOPEN_SOURCE=700
+CWRAPPERS_APPEND.cxx+=	-D_XOPEN_SOURCE=700
+# clang on illumos links against GCC's runtime (crtbegin.o, libgcc, libssp); point it at gcc13's runtime dir
+# through the compiler wrappers (same approach as the 26.7 package, c0402dd).
+TOOL_DEPENDS+=		gcc13-[0-9]*:../../lang/gcc13
+_CH_GCC_DIR!=		/usr/bin/dirname `${LOCALBASE}/gcc13/bin/gcc -print-libgcc-file-name`
+CWRAPPERS_APPEND.cc+=	--gcc-install-dir=${_CH_GCC_DIR}
+CWRAPPERS_APPEND.cxx+=	--gcc-install-dir=${_CH_GCC_DIR}
 
 # StorageSystemLicenses.sh requires GNU find, grep, and xargs as the
 # plain tool names.
@@ -54,10 +63,14 @@ SSLCERTS=	${SSLDIR}/certs
 
 # Default to a minimal build, only enabling features we specifically require.
 CMAKE_CONFIGURE_ARGS+=	-DCMAKE_BUILD_TYPE=Release
+# PreLoad.cmake rejects non-empty CFLAGS/CXXFLAGS/LDFLAGS in the environment;
+# pkgsrc wrappers supply the flags instead.
+CONFIGURE_ENV+=		CFLAGS= CXXFLAGS= LDFLAGS=
 CMAKE_CONFIGURE_ARGS+=	-DCOMPILER_CACHE=disabled
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_LIBRARIES=OFF
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_NURAFT=ON
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_RAPIDJSON=ON
+CMAKE_CONFIGURE_ARGS+=	-DENABLE_BZIP2=ON
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_RUST=OFF
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_SIMDJSON=ON
 CMAKE_CONFIGURE_ARGS+=	-DENABLE_TESTS=OFF
@@ -127,6 +140,22 @@ post-install:
 		${DESTDIR}${PREFIX}/bin/clickhouse-chdig
 	# Empty debug-info placeholder installed for upstream's nfpm packaging.
 	${RM} -rf ${DESTDIR}${PREFIX}/lib/debug
+
+# Configure without the inherited CFLAGS/CXXFLAGS/LDFLAGS, which PreLoad.cmake
+# rejects. pkgsrc wrappers supply the flags.
+do-configure:
+	${RUN} cd ${WRKSRC}/${CONFIGURE_DIR} && \
+		unset CFLAGS CXXFLAGS LDFLAGS && ${SETENV} ${CONFIGURE_ENV:NCFLAGS=*:NCXXFLAGS=*:NLDFLAGS=*} cmake \
+		--install-prefix ${PREFIX} -B ${CMAKE_BUILD_DIR} \
+		-G ${_CMAKE_BUILD_SYSTEM:Q} ${CMAKE_CONFIGURE_ARGS}
+
+# Upstream master passes -z keep-text-section-prefix without a SunOS guard, which illumos ld rejects.
+# relro, separate-code and noexecstack are guarded by LINKER_IS_SOLARIS upstream. Fail here before a bump builds.
+pre-configure:
+	@if grep -q 'keep-text-section-prefix' ${WRKSRC}/CMakeLists.txt; then \
+		${ECHO} "CMakeLists.txt has -z linker flags unsupported by illumos ld; add a SunOS guard patch."; \
+		exit 1; \
+	fi
 
 .include "../../devel/cmake/build.mk"
 .include "../../mk/bsd.pkg.mk"
